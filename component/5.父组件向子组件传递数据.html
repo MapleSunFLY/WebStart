@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../lib/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <!--父组件可以在引用子组件的时候，通过属性绑定（v-bind）的形式，把需要传递给子组件的数据，传递到子组件内部-->
+    <!--如果以驼峰名命绑定时 大写位置需要用 - 分割-->
+    <son :parent-msg="msg"></son>
+</div>
+
+<template id="son">
+    <div>
+        <h3>son组件 ---- {{ parentMsg }}</h3>
+    </div>
+</template>
+
+<script>
+
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            msg: '我是父级数据',
+        },
+        components: {
+            son: {
+                // 子组件默认情况下是不能直接使用父组件的数据
+                template: '#son',
+
+                data() { // data 数据为子组件数据私有的 ，并且可读可写的
+                    return {
+                        msg: '子组件数据',
+                    }
+                },
+
+                // 将父组件通过属性绑定传递的数据，要可以在子组件使用需要先在 props数组 中定义一下。
+                // 注意：组件中 props 中的数据都父组件传递给子组件的，并且数据都是只读的
+                props: ['parentMsg'],
+            }
+        }
+    })
+</script>
+
+</body>
+</html>

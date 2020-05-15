@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../lib/vue.js"></script>
+    <style>
+        [v-cloak] { /*所有包含这个属性的标签，在没加载出来的时候显示该样式*/
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<div id="app">
+    <!--v-cloak解决网速慢引起的插件未加载完成的闪烁问题-->
+    <!--{{ msg }}超级表达式方便在前后拼接固定内容-->
+    <p v-cloak>===== {{ msg }} =====</p>
+
+    <!--v-text不存在闪烁问题，因为标签内无内容，但是会覆盖标签内默认类容-->
+    <h4 v-text="msg">=======</h4>
+
+    <!--v-text与超级表达式会转义标签显示，v-html可以将文本内容编译输出-->
+    <!--v-html也会覆盖标签内内容-->
+    <div v-html="msg">======</div>
+
+    <!--v-bind：是Vue提供绑定属性的指令-->
+    <!--<input type="button" value="按钮" v-bind:title="myTitle + '123'">-->
+    <!--简写方式只写冒号-->
+    <!--v-bind：可以写一些合法的JS表达式-->
+    <input type="button" value="v-bind 按钮" :title="myTitle + '123'">
+
+    <!--v-on：是Vue中提供的绑定事件的指令-->
+    <!--<input type="button" value="v-on 按钮" v-on:click="show">-->
+    <!--v-on：可以缩写成@-->
+    <input type="button" value="v-on 按钮" @click="show">
+</div>
+
+<script>
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            msg: '<h1>我是一个标签</h1>',
+            myTitle: '我是一个自定义题目',
+        },
+        methods: { // methods定义了当前Vue中所有可用的方法
+            // show: function () {
+            //     alert('点击我干嘛');
+            // }
+            // 可简写为
+            show() {
+                alert('点击我干嘛');
+            }
+        }
+    })
+</script>
+
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../lib/vue.js"></script>
+    <style>
+        table {
+            border-collapse: collapse; /* 边线重合值显示一条边线 */
+            width: 100%;
+            cellspacing: 0;
+            border: 1px solid #000000;
+            text-align: center;
+        }
+
+        tr {
+            height: 40px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="app">
+    <div>
+        <label>Name:
+            <!--keyup监听按键抬起 后面是按键修饰符 监听enter键-->
+            <!--<input type="text" v-model="name" @keyup.enter="add">-->
+            <!--由于vue之提供了部分常用按键的修饰符，如果没有的修饰符可以用按键的keyCode代替 如：F2=113-->
+            <!--<input type="text" v-model="name" @keyup.113="add">-->
+            <!--也可以定义自定义的全局修饰符 Vue.config.keyCodes.f2 = 113;-->
+            <input type="text" v-model="name" @keyup.f2="add">
+        </label>
+
+        <label>搜索名称关键字:
+            <input type="text" v-model="keywords">
+        </label>
+    </div>
+
+    <br>
+
+    <table border="1">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Ctime</th>
+            <th>Operation</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr v-for="item in search(keywords)" :key="item.id">
+            <td>{{ item.id }}</td>
+            <td>{{ item.name }}</td>
+            <td>{{ item.ctime | dateFormat }}</td>
+            <td>
+                <a href="" @click.prevent="del(item.id)">删除</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<script>
+
+    //自定义全局按键修饰符
+    Vue.config.keyCodes.f2 = 113;
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            name: '',
+            list: [
+                {id: 1, name: '1奔驰', ctime: new Date()},
+                {id: 2, name: '1宝马', ctime: new Date()},
+                {id: 3, name: '2大众', ctime: new Date()},
+                {id: 4, name: '2雪佛兰', ctime: new Date()},
+            ],
+        },
+        methods: {
+            add(name) {
+                console.log(name);
+                if (this.name) {
+                    this.list.push({id: this.list.length + 1., name: this.name, ctime: new Date()});
+                    this.name = '';
+                }
+            },
+            del(id) {
+                var index = this.list.findIndex(item => {
+                    if (id == item.id) {
+                        return true;
+                    }
+                })
+                console.log(index);
+                this.list.splice(index, 1);
+
+            },
+            search(keyword) {
+                if (!keyword) return this.list;
+                // 赛选方法
+                var searchList = this.list.filter(itme => {
+                    if (itme.name.includes(keyword)) {
+                        return itme;
+                    }
+                })
+                return searchList;
+            }
+        },
+    })
+</script>
+
+</body>
+</html>

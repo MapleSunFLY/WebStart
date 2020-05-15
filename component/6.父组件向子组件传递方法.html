@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../lib/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <!--通过 世事件绑定机制 v-no 的方式绑定父组件方法-->
+    <son @show="show"></son>
+</div>
+
+<template id="son">
+    <div>
+        <h3>son组件</h3>
+        <input type="button" value="子组件触发" @click="myclick">
+    </div>
+</template>
+
+<script>
+
+    var vm = new Vue({
+        el: '#app',
+        methods: {
+            show(data, data2) {
+                console.log('调用了父级方法 ---' + data + "通过方法传值----" + data2);
+            }
+        },
+        components: {
+            son: {
+                template: '#son',
+                data() {
+                    return {
+                        somMsg: '子组件的msg'
+                    }
+                },
+                methods: {
+                    myclick() {
+                        console.log('调用了子组件myclick');
+                        // 子组件如何获取并调用
+                        // $emit触发某方法 this.$emit('绑定方法名称')  调用传递方法
+                        // 方法产数按顺序添加在后面，第一个为方法名
+                        // 这种方式 相当于向父组件传递产生
+                        this.$emit('show', 123,this.somMsg);
+                    }
+                }
+            }
+        }
+    })
+</script>
+
+</body>
+</html>

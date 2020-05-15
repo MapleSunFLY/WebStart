@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>事件修饰符</title>
+    <script src="../lib/vue.js"></script>
+    <style>
+        .inner {
+            height: 50px;
+            background-color: cornflowerblue;
+        }
+    </style>
+</head>
+<body>
+
+<div id="app">
+    <!-- .prevent 阻止默认事件 如连接跳转 在注册事件后面点-->
+    <a href="http://www.baidu.com" @click.prevent="linkClick">去百度</a>
+
+    <div class="inner" @click="divHandler">
+        <!-- .stop 阻止冒泡事件 在注册事件后面点-->
+        <input type="button" value="阻止冒泡按钮" @click.stop="btnHandler">
+    </div>
+
+    <!-- .capture 设置点击机制为捕获机制 在注册事件后面点-->
+    <div class="inner" @click.capture="divHandler">
+        <input type="button" value="捕获机制按钮" @click="btnCapture">
+    </div>
+
+    <!--.self 只有当自己点击执行，冒泡事件等都不执行-->
+    <div class="inner" @click.self="divHandler">
+        <input type="button" value="自己执行按钮" @click="btnSelf">
+    </div>
+
+    <!--.once 只执行一次，冒泡事件等都不执行-->
+    <input type="button" value="只执行一次按钮" @click.once="btnOnce">
+
+    <!--要使用多个时可以串联使用-->
+</div>
+
+<script>
+    var vm = new Vue({
+        el: '#app',
+        data: {},
+        methods: {
+            linkClick() {
+                console.log('这里是百度');
+            },
+            divHandler() {
+                console.log('我是 div inner 的点击事件');
+            },
+            btnHandler() {
+                console.log('我是 阻止冒泡事件btn 的点击事件');
+            },
+
+            btnCapture() {
+                console.log('这里是 捕获机制按钮');
+            },
+            btnSelf() {
+                console.log('这里是 自己执行按钮');
+            },
+            btnOnce() {
+                console.log('这里是 只执行一次按钮');
+            }
+        }
+    })
+</script>
+
+</body>
+</html>

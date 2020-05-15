@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>出去浪</title>
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+    </style>
+    <script src="../lib/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <input type="button" value="开始浪" @click="start">
+    <input type="button" value="别浪" @click="end">
+    <h4 v-cloak>{{ msg }}</h4>
+</div>
+
+<script>
+    // 在Vue实例中需要访问 data中的数据或methods中的方法，必须通过 this.属性名 或者 this.方法名
+    var mv = new Vue({
+        el: '#app',
+        data: {
+            msg: '快让开，我要出去浪了，别拦我！',
+            intervalId: null, //方法公共参数在data中定义
+        },
+        methods: {
+            start() {
+                // () => {} 兼容函数 兼容函数内部的 this 与外部方法 this 保持一致
+                // 使用兼容函数，这样内部的函数也可以访问外部的this信息
+                if (!this.intervalId) {
+                    this.intervalId = setInterval(() => {
+                        console.log(this.msg);
+                        //当data中数据更新后，Vue会自动更新界面信息
+                        this.msg = this.msg.substring(1) + this.msg.substring(0, 1);
+                    }, 500)
+                }
+            },
+            end() {
+                clearInterval(this.intervalId)
+                this.intervalId = null;
+            }
+        }
+    })
+</script>
+
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../lib/vue.js"></script>
+    <!--2.自定义两组样式，通过transition实现动画-->
+    <style>
+        .ball {
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background-color: red;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="app">
+    <input type="button" value="Toggle" @click="flag=!flag">
+    <!--绑定半场动画函数-->
+    <transition @before-enter="beforeEnter"
+                @enter="enter"
+                @after-enter="afterEnter">
+        <div class="ball" v-show="flag"></div>
+    </transition>
+</div>
+
+<script>
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            flag: false,
+            flag2: false,
+        },
+        methods: {
+            // 第一个参数，都是执行动画的那个DOM元素 el
+
+            // beforeEnter 开始动画之前的函数，可以设置开始动画之前的状态·
+            beforeEnter(el) {
+                // 设置小球的开始位置
+                el.style.transform = 'translate(0, 0)';
+            },
+
+            // enter 表示动画 开始之后的样式
+            enter(el,done) {
+
+                // 本身没有作用 不设置没有动画效果
+                // 可以认为 el.offset**** 会强制动画刷新
+                el.offsetWidth;
+
+                // 设置小球完成动画后的结束状态
+                el.style.transform = 'translate(150px, 450px)';
+
+                //设置过渡方式 全部属性 一秒
+                el.style.transition = 'all 1s ease';
+
+                //需要 理解执行需要手动调用 done = afterEnter; 回调函数
+                done();
+            },
+
+            // afterEnter 动画完成之后的函数，可以设置动画结束后的状态
+            afterEnter(el) {
+                //隐藏小球，重新点击会重新执行动画，及会先初始化，如果不
+                this.flag = !this.flag
+
+                // el.style.opacity = 0.5;
+                // 不能实现动画效果
+                // Vue 把一个完整的动画，使用钩子函数，拆分为了两部分
+                // 我们用flag标识，来表示动画切换，如果不修改flag状态，则会认为动没有播放完成，继续播放下半场动画
+                // 所以需要取非来跳过后半场动画
+            },
+        }
+    })
+</script>
+
+</body>
+</html>

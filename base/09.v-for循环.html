@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../lib/vue.js"></script>
+</head>
+<body>
+
+<div id="app">
+
+    <!--直接通过数组的方式取值-->
+    <p>{{ list[0] }}</p>
+    <br>
+    <!--v-for遍历数组 直接取值-->
+    <p v-for="item in list">{{ item }}</p>
+    <br>
+    <!--v-for遍历数组 itme为值 i为索引 等同于forEach((item,i)=>{})-->
+    <p v-for="(item,i) in list">索引值：{{ i }} --- 值：{{ item }}</p>
+    <br>
+    <!--v-for遍历对象数组 itme为值 i为索引 等同于forEach((item,i)=>{})-->
+    <p v-for="(user,i) in listObj">索引值：{{ i }} --- id：{{ user.id }} --- name：{{ user.name }} --- age：{{ user.age }}</p>
+    <br>
+    <!--v-for遍历对象 第一个值为value 第二个值为key 第三个值为索引-->
+    <p v-for="(val , key , i) in user">索引值：{{ i }} --- {{ key }}：{{ val }}</p>
+    <br>
+    <!--v-for迭代数字 in后可以放，数组，对象数组，对象，数组（放什么数组代表循环多少次）-->
+    <!--使用v-for迭代数字，count值从1开始-->
+    <p v-for="count in 10">索引值：{{ count }}</p>
+
+    <!--注意：2.2.0版本中，当组件使用 V-for 时，key是必须的-->
+</div>
+
+<script>
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            list: [1, 2, 3, 4, 5],
+            listObj: [
+                {id: 1, name: '张三', age: 16},
+                {id: 2, name: '李四', age: 17},
+                {id: 3, name: '王五', age: 18},
+                {id: 4, name: '赵六', age: 19}
+            ],
+            user: {
+                id: 1,
+                name: '张三',
+                age: 16
+            }
+        },
+        methods: {}
+    })
+</script>
+
+</body>
+</html>

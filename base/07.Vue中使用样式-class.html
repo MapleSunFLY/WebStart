@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../lib/vue.js"></script>
+    <style>
+
+        .red {
+            color: red;
+        }
+
+        .thin { /*加粗*/
+            font-weight: 200;
+        }
+
+        .italic { /*倾斜*/
+            font-style: italic;
+        }
+
+        .active { /*激活*/
+            letter-spacing: 0.5em; /*字间距中文*/
+        }
+    </style>
+</head>
+<body>
+
+
+<div id="app">
+
+    <!--普通使用样式的方式-->
+    <h1 class="red thin">这是一个标题</h1>
+
+    <!--Vue第一种绑定使用的方式 元素间可以使用三项表达式-->
+    <h1 :class="['red','italic', flag ? 'active':'']">这是一个绑定标题</h1>
+
+    <!--三项表达式可读性等不优，我们可以以对象的方式书写，提高代码可读性-->
+    <h1 :class="['red','italic', {'active' : flag1}]">这是一个绑定标题</h1>
+
+    <!--Vue第二种方式，直接使用对象方式 key是类名，后面是显隐的标识符，可以是data字段-->
+    <h1 :class="{active : flag1 , thin : true}">这是一个绑定标题</h1>
+
+    <!--也可以直接应用 data中对象-->
+    <h1 :class="classObj">这是一个绑定标题</h1>
+</div>
+
+<script>
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            flag: false,
+            flag1: true,
+            classObj: {active : true, thin : true},
+        },
+        methods: {}
+    })
+</script>
+
+</body>
+</html>

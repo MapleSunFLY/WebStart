@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-for="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>品牌列表</title>
+    <script src="../lib/vue.js"></script>
+    <style>
+        table {
+            border-collapse: collapse; /* 边线重合值显示一条边线 */
+            width: 100%;
+            cellspacing: 0;
+            border: 1px solid #000000;
+            text-align: center;
+        }
+
+        tr {
+            height: 40px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="app">
+
+    <div>
+        <label>Name:
+            <input type="text" v-model="name">
+        </label>
+
+        <!--在Vue中，使用事件绑定机制时，为元素指定处理函数的时候，如果加了小括号，就可以给函数传参了-->
+        <input type="button" value="添加" @click="add(name)">
+
+        <label>搜索名称关键字:
+            <input type="text" v-model="keywords">
+        </label>
+    </div>
+    <br>
+    <table border="1">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Ctime</th>
+            <th>Operation</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr v-for="item in search(keywords)" :key="item.id">
+            <td>{{ item.id }}</td>
+            <td>{{ item.name }}</td>
+            <td>{{ item.ctime | dateFormat }}</td>
+            <td>
+                <a href="" @click.prevent="del(item.id)">删除</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+</div>
+
+<script>
+    Vue.filter('dateFormat', function (dateStr) {
+        var dt = new Date(dateStr);
+        var y = dt.getFullYear();
+        // padStart 设置字符串长度 不足用第二参数补充
+        var m = (dt.getMonth() + 1).toString().padStart(2,"0");
+        var d = dt.getDate().toString().padStart(2,'0');
+        return `${y}-${m}-${d}`;
+    });
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            name: '',
+            keywords: '',
+            list: [
+                {id: 1, name: '1奔驰', ctime: new Date()},
+                {id: 2, name: '1宝马', ctime: new Date()},
+                {id: 3, name: '2大众', ctime: new Date()},
+                {id: 4, name: '2雪佛兰', ctime: new Date()},
+            ],
+        },
+        methods: {
+            add(name) {
+                console.log(name);
+                if (this.name) {
+                    this.list.push({id: this.list.length + 1., name: this.name, ctime: new Date()});
+                    this.name = '';
+                }
+            },
+            del(id) {
+                // some 循环遍历数组 返回true终止循环
+                // this.list.some((itme, i) => {
+                //     if (id == itme.id) {
+                //         this.list.splice(i, 1);
+                //         return true;
+                //     }
+                // })
+                // 遍历数组 根据条件返回true终止循环，并返回索引值
+                var index = this.list.findIndex(item => {
+                    if (id == item.id) {
+                        return true;
+                    }
+                })
+                console.log(index);
+                //删除数组对象，开始位置，删除数量
+                this.list.splice(index, 1);
+
+            },
+            search(keyword) {
+                if (!keyword) return this.list;
+
+                // 正常遍历数组
+                // var searchList = [];
+                // this.list.forEach((item) => {
+                //     if (item.name.indexOf(keyword) != -1) {
+                //         searchList.push(item);
+                //     }
+                // })
+
+
+                // 赛选方法
+                var searchList = this.list.filter(itme => {
+                    if (itme.name.includes(keyword)) {
+                        return itme;
+                    }
+                })
+                return searchList;
+            }
+        }
+    })
+</script>
+
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>生命周期</title>
+    <script src="../lib/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <h3 id="h3">{{ msg }}</h3>
+</div>
+
+<script>
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            msg: 'ok',
+        },
+        methods: {
+            show(s) {
+                console.log('我是show方法，我执行在：' + s)
+            }
+        },
+
+        //创建阶段的，第一个生命周期函数，表示实例完全被创建出来之前执行
+        beforeCreate() {
+            console.log(this.msg)
+            // 在 beforeCreate 生命周期函数执行时 data和methods都未被初始化
+        },
+
+        //创建阶段的，第二个生命周期函数，数据和方法初始化后执行
+        created() {
+            // 如果要调用方法和操作数据最早只能在 created 方法中
+            this.show('created');
+        },
+
+        //创建阶段的，第三个生命周期函数，将Vue中代码进行执行，在内存中生成一个最终模板字符串，渲染到内存中DOM，并没有挂载到真正的页面中
+        beforeMount() {
+            // 在 beforeMount 执行时，页面元素还没有被真正渲染，只是之前写的模板字符串
+            console.log(document.getElementById('h3').innerText);
+        },
+
+        //创建阶段的，第四个生命周期函数，将内存中的模板已经真实的挂在到界面中
+        mounted() {
+            // 在 mounted 执行时，用户已经看到界面了
+            // mounted 是实例创建的最后一个周期函数，当mounted执行完表示实例已被完全创建好了
+            console.log(document.getElementById('h3').innerText);
+        },
+
+        // 运行阶段的，第一个生命周期函数, data 发生改变时执行，界面并未更新 最少执行0执行，最多无数次
+        beforeUpdate() {
+
+        },
+
+        // 运行阶段的，第二个生命周期函数， data 发生改变后重新修改内存中Vue并挂载到界面后执行（及数据改变并更新界面后执行）
+        updated() {
+
+        },
+
+        //销毁阶段的，第一个生命周期函数，当实例从运行阶段进入销毁阶段 执行
+        beforeDestroy() {
+            // 当执行 beforeDestroy 的时候，实例身上的 数据、方法、过滤器、指令等等 都还可用，并没有执行真正销毁过程
+        },
+
+        //销毁阶段的，第二个生命周期函数，完成销毁后执行
+        destroyed() {
+            // 当执行 destroyed 的时候，实例已经被完全销毁了，实例身上的 数据、方法、过滤器、指令等等 都已经不可用了
+        }
+    })
+</script>
+</body>
+</html>

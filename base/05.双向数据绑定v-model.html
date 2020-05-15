@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../lib/vue.js"></script>
+</head>
+<body>
+
+<div id="app">
+
+    <h4>{{ msg }}</h4>
+
+    <!-- v-model 可以实现双向绑定 当表单内容修改后，data中的msg也会发生改变-->
+    <!-- 注意： v-model 只能运用于表单元素-->
+    <!--input select checkbox textarea-->
+    <input type="text" v-model="msg" style="width: 100%">
+</div>
+
+<script>
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            msg: '大家好！我是K歌之王，谢谢！！！',
+        },
+        methods: {}
+    })
+</script>
+
+</body>
+</html>

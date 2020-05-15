@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../lib/vue.js"></script>
+    <style>
+        table {
+            border-collapse: collapse; /* 边线重合值显示一条边线 */
+            width: 100%;
+            cellspacing: 0;
+            border: 1px solid #000000;
+            text-align: center;
+        }
+
+        tr {
+            height: 40px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="app">
+    <div>
+        <label>Name:
+            <input type="text" v-model="name" @keyup.f2="add">
+        </label>
+
+        <label>搜索名称关键字:
+            <!--注意：Vue中所有的指令都以 v-开头-->
+            <input type="text" v-model="keywords" v-focus>
+        </label>
+    </div>
+
+    <br>
+
+    <table border="1">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Ctime</th>
+            <th>Operation</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr v-for="item in search(keywords)" :key="item.id">
+            <td>{{ item.id }}</td>
+            <td v-color="'deeppink'" v-fontweight="200" v-fontsize="20">{{ item.name }}</td>
+            <td>{{ item.ctime | dateFormat }}</td>
+            <td>
+                <a href="" @click.prevent="del(item.id)">删除</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<script>
+
+    //自定义全局按键修饰符
+    Vue.config.keyCodes.f2 = 113;
+
+    // 在Vue中 directive 定义全局指令
+    // 参数1：是指令名称，注意在定义的时候，指令名称不需要加 v- 前缀 调用的时候使用即可
+    // 参数2：是一个对象，这个对象身上，有一些指令相关的函数，这些函数可以在特定的阶段，执行相关操作
+    Vue.directive('focus', {// 函数执行顺序 el 为绑定元素
+        bind: function (el) { // 每当指令绑定到元素上的时候，立即执行这个函数，只执行一次，主要运用样式相关操作
+            //不会生效，因为一个元素，只有被插入到DOM之后，才能获取焦点
+            el.focus();
+        },
+        inserted: function (el) { // 当绑定元素插入到 DOM 中，执行这个函数，只执行一次，主要运用与行为相关操作
+            // 获取焦点
+            el.focus();
+        },
+        updated: function (el) {// 当VNode更新的时候，会执行这个函数，可能触发多次
+
+        },
+    });
+
+    Vue.directive('color', {// 函数执行顺序 el 为绑定元素
+        //第二个参数是形参，什么单词都可以等号后面的值
+        bind: function (el, binding) { // 每当指令绑定到元素上的时候，立即执行这个函数，只执行一次
+            el.style.color = binding.value;
+        }
+    });
+
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            name: '',
+            list: [
+                {id: 1, name: '1奔驰', ctime: new Date()},
+                {id: 2, name: '1宝马', ctime: new Date()},
+                {id: 3, name: '2大众', ctime: new Date()},
+                {id: 4, name: '2雪佛兰', ctime: new Date()},
+            ],
+        },
+        methods: {
+            add(name) {
+                console.log(name);
+                if (this.name) {
+                    this.list.push({id: this.list.length + 1., name: this.name, ctime: new Date()});
+                    this.name = '';
+                }
+            },
+            del(id) {
+                var index = this.list.findIndex(item => {
+                    if (id == item.id) {
+                        return true;
+                    }
+                })
+                console.log(index);
+                this.list.splice(index, 1);
+
+            },
+            search(keyword) {
+                if (!keyword) return this.list;
+                // 赛选方法
+                var searchList = this.list.filter(itme => {
+                    if (itme.name.includes(keyword)) {
+                        return itme;
+                    }
+                })
+                return searchList;
+            }
+        },
+        filters: { //定义私有过滤器 过滤器有两个条件 过滤器名称 和处理函数
+        },
+        directives: {//自定义私有指令
+            'fontweight': {
+                bind: function (el, binding) {
+                    el.style.fontWeight = binding.value;
+                }
+            },
+            // 简写形式 等同于在 bind和update中都写了一份代码
+            'fontsize': function (el, binding) {
+                el.style.fontSize = parseInt(binding.value) + 'px';
+            }
+        }
+    })
+</script>
+
+</body>
+</html>
