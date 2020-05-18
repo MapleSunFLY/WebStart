@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../lib/vue.js"></script>
+    <script src="../lib/vue-router.js"></script>
+    <style>
+        .router-link-active {
+            color: red;
+            font-weight: 800;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <!--第一种：如果在路由中，使用查询字符串，给路由传递参数，则不需要修改 路由path属性-->
+    <router-link to="/login?id=10&name=张三" tag="span">登录</router-link>
+
+    <!--第二种：修改路由匹配规则 设置占位值-->
+    <router-link to="/register/12/李四">注册</router-link>
+
+    <router-view></router-view>
+
+</div>
+
+<template id="login">
+    <div>
+        <h3>Login组件 --- {{ $route.query.id }} --- {{ $route.query.name }}</h3>
+    </div>
+</template>
+
+<template id="register">
+    <div>
+        <h3>Register组件 --- {{ $route.params.id }} --- {{ $route.params.name }}</h3>
+    </div>
+</template>
+
+<script>
+    var login = {
+        template: '#login',
+        created() {
+            console.log(this.$route)
+            console.log(this.$route.query.id)
+        },
+        data() {
+            return {}
+        }
+    }
+
+    var register = {
+        template: '#register',
+        created() {
+            console.log(this.$route)
+            console.log(this.$route.params.id)
+        },
+    }
+
+    var routerObj = new VueRouter({
+        routes: [
+            {path: '/', redirect: '/login'},
+            {path: '/login', component: login},
+            // 设置占位匹配值 如果没有按规则传入值，无法匹配到对应地址
+            {path: '/register/:id/:name', component: register},
+        ],
+    })
+
+    var vm = new Vue({
+        el: '#app',
+        methods: {},
+        components: {},
+        router: routerObj,
+    })
+</script>
+
+</body>
+</html>

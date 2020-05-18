@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../lib/vue.js"></script>
+    <script src="../lib/vue-router.js"></script>
+</head>
+<body>
+<div id="app">
+    <router-link to="/">account</router-link>
+    <router-view></router-view>
+</div>
+
+<template id="account">
+    <div>
+        <h3>Account组件</h3>
+
+        <router-link to="/account/login">登录</router-link>
+        <router-link to="/account/register">注册</router-link>
+        <router-view></router-view>
+    </div>
+</template>
+
+<template id="login">
+    <div>
+        <h3>Login组件</h3>
+    </div>
+</template>
+
+<template id="register">
+    <div>
+        <h3>Register组件</h3>
+    </div>
+</template>
+
+<script>
+    var account = {
+        template: '#account',
+    }
+
+    var login = {
+        template: '#login',
+    }
+
+    var register = {
+        template: '#register',
+    }
+
+    var routerObj = new VueRouter({
+        routes: [
+            {path: '/', redirect: '/account'},
+            {
+                path: '/account',
+                component: account,
+                // 子路由
+                children: [
+                    {path: 'login', component: login},
+                    {path: 'register', component: register},
+                ]
+            },
+        ],
+    })
+
+    var vm = new Vue({
+        el: '#app',
+        methods: {},
+        components: {},
+        router: routerObj,
+    })
+</script>
+
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../lib/vue.js"></script>
+    <script src="../lib/vue-router.js"></script>
+    <style>
+
+
+
+        .header {
+            background-color: orange;
+            height: 80px;
+        }
+
+        .container {
+            display: flex;
+        }
+
+        .left {
+            background-color: aquamarine;
+            flex: 2;
+
+        }
+
+        .main {
+            background-color: aqua;
+            flex: 8;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+
+    <router-view></router-view>
+
+    <div class="container">
+        <router-view name="left"></router-view>
+        <router-view name="main"></router-view>
+    </div>
+</div>
+
+<template id="header">
+    <h3 class="header">Header区域</h3>
+</template>
+
+<template id="leftBox">
+    <div class="left">
+        <h3>leftBox区域</h3>
+    </div>
+</template>
+
+<template id="mainBox">
+    <div class="main">
+        <h3>mainBox区域</h3>
+    </div>
+</template>
+
+<script>
+    var header = {
+        template: '#header',
+    }
+
+    var leftBox = {
+        template: '#leftBox',
+    }
+
+    var mainBox = {
+        template: '#mainBox',
+    }
+
+    var routerObj = new VueRouter({
+        routes: [
+            {
+                path: '/',
+                components: {
+                    //默认的组件
+                    default: header,
+                    // 名称自取
+                    left: leftBox,
+                    main: mainBox,
+                }
+            },
+        ],
+    })
+
+    var vm = new Vue({
+        el: '#app',
+        methods: {},
+        components: {},
+        router: routerObj,
+    })
+</script>
+
+</body>
+</html>

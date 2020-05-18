@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../lib/vue.js"></script>
+    <script src="../lib/vue-router.js"></script>
+    <style>
+        /*router-link-active 当路由被选中后会设置这类*/
+        .router-link-active {
+            color: red;
+            font-weight: 800;
+            font-style: italic;
+        }
+
+        .myactive {
+            color: red;
+            font-weight: 800;
+            font-style: italic;
+        }
+
+        .v-enter,
+        .v-leave-to {
+            opacity: 0;
+            transform: translateX(100px);
+        }
+
+        .v-enter-active,
+        .v-leave-active {
+            transition: all 0.4s ease;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <!--不能直接用 / ，斜线代表需要跳转一个真实的页面，需要加一个# 表示跳转本地哈希 不推荐使用-->
+    <!--<a href="#/login">登录</a>
+    <a href="#/register">注册</a>-->
+
+    <!--router-link 默认渲染为 a 标签 tag设置渲染标签类型 均可点击 -->
+    <router-link to="/login" tag="span">登录</router-link>
+    <router-link to="/register">注册</router-link>
+
+    <!--这是 vue-router 提供的元素，专门用来做占位符，将路由规则，匹配到组件，就会展示到 router-view 这个标签中-->
+    <transition mode="out-in">
+        <router-view></router-view>
+    </transition>
+
+</div>
+
+<template id="login">
+    <div>
+        <h3>Login组件</h3>
+    </div>
+</template>
+
+<template id="register">
+    <div>
+        <h3>Register组件</h3>
+    </div>
+</template>
+
+<script>
+    var login = {
+        template: '#login',
+    }
+
+    var register = {
+        template: '#register',
+    }
+
+    //创建一个路由，传递一个配置对象
+    var routerObj = new VueRouter({
+        // 配置这个对象中的 router 表示【路由匹配规则】的意思
+        routes: [
+            // 每一个路由规则，都是一个对象，这个规则对象，身上必须有两个属性
+            // 属性1：path 表示监听 那个路由连接地址
+            // 属性2：component 表示 如果路由前面匹配的 path 地址 展示 compoent 属性组件 放置组件模板对象
+            {path: '/login', component: login},
+            {path: '/register', component: register},
+            // 这里的 radirect 与 Node 中的 radirect 完全不一样 Node属于服务器302 重定向，而这里属于修改哈希值，重新跳转
+            {path: '/', redirect: '/login'},
+        ],
+        // 当路由被选中后会设置这类
+        linkActiveClass: 'myactive'
+    })
+
+    var vm = new Vue({
+        el: '#app',
+        methods: {},
+        components: {},
+
+        // 将路由规则对象注册到 vm 实例上，用来监听 URL 地址 ，展示不同组件
+        router: routerObj,
+    })
+</script>
+
+</body>
+</html>
