@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../lib/vue.js"></script>
+    <script src="../lib/vue-router.js"></script>
+    <style>
+        /*router-link-active 当路由被选中后会设置这类*/
+        .router-link-active {
+            color: red;
+            font-weight: 800;
+            font-style: italic;
+        }
+
+        .myactive {
+            color: red;
+            font-weight: 800;
+            font-style: italic;
+        }
+
+        .v-enter,
+        .v-leave-to {
+            opacity: 0;
+            transform: translateX(100px);
+        }
+
+        .v-enter-active,
+        .v-leave-active {
+            transition: all 0.4s ease;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <router-link to="/login" tag="span">登录</router-link>
+    <router-link to="/register">注册</router-link>
+    <transition mode="out-in">
+        <router-view></router-view>
+    </transition>
+</div>
+
+<template id="login">
+    <div>
+        <h3>Login组件</h3>
+    </div>
+</template>
+
+<template id="register">
+    <div>
+        <h3>Register组件</h3>
+    </div>
+</template>
+
+<script>
+    var login = {
+        template: '#login',
+    }
+
+    var register = {
+        template: '#register',
+    }
+
+    var routerObj = new VueRouter({
+        routes: [
+            {path: '/login', component: login},
+            {path: '/register', component: register},
+            {path: '/', redirect: '/login'},
+        ],
+        linkActiveClass: 'myactive'
+    })
+
+    var vm = new Vue({
+        el: '#app',
+        methods: {},
+        components: {},
+        router: routerObj,
+        watch: {
+            "@route.path": function (newVal, oldVal) {
+                console.log(newVal + "-----" + oldVal)
+            }
+        }
+    })
+</script>
+
+</body>
+</html>
