@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>02 对话框</title>
+</head>
+<body>
+	<input type="button" value="alert" id="btnAlert">
+	<input type="button" value="prompt" id="btnPrompt">
+	<input type="button" value="confirm" id="btnConfirm">
+
+	<script type="text/javascript">
+		// 这三种对话基本不会使用，做调试和了解
+		var btnAlert = document.getElementById('btnAlert');
+		var btnPrompt = document.getElementById('btnPrompt');
+		var btnConfirm = document.getElementById('btnConfirm');
+
+		btnAlert.onclick = function () {
+			alert('hello world');
+		}
+
+		btnPrompt.onclick = function () {
+			var userName = prompt('请输入姓名','默认');
+			console.log(userName);
+		}
+
+		btnConfirm.onclick = function () {
+			var isSure = confirm('是否删除数据');
+			console.log(isSure);
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>03 复杂数据类型在内存中的存储</title>
+	<script type="text/javascript">
+		//复杂数据类型在内存中的存储 
+		//会先在堆内存上开辟一个空间储存当前数据内容，再在栈内存上创建一个id指向堆内存
+		//变量都指向栈内存的id，所以他们的数据内容都是同一个空间，任何一个修改都会影响其他的变量
+		
+		function Person(name,age){
+			this.name = name;
+			this.age = age;
+			this.sayHi = function (){
+				console.log("Hi I am" + this.name);
+			}
+		}
+
+		var a = new Person("小米",18);
+		var b = a;
+		console.log("a修改前：");
+		console.log(a.name);
+		console.log(b.name);
+
+		a.name = "小名";
+		//因为 a，b变量只是在栈内存上开辟了复杂类型id的空间，所以指向的堆内存上的数据内容相同，a改变后b也会随之改变
+		console.log("a修改后：");
+		console.log(a.name);
+		console.log(b.name);
+
+		console.log("---------------------------------------------------------");
+
+		// 复杂数据类型作为函数参数在内存中的存储
+		// 出入参数也只是在栈内存创建了一个相同的堆内存的id，所以与源变量任是指向同一个堆内存id
+		// 所以方法内部的传入参数修改，源变量也会修改
+		function fn(person){
+			person.name = "大刘";
+			console.log("方法中出入参数：");
+			console.log(person.name);
+		}
+
+		var c = new Person("大猪",26);
+		console.log("调用方法前源变量：");
+		console.log(c.name);
+
+		fn(c);
+		//由于出入参数与源变量指向同一个堆内存空间，所以方法内部的修改，源变量也会修改
+		console.log("调用方法后源变量：");
+		console.log(c.name);
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

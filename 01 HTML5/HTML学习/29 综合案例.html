@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>29 综合案例</title>
+</head>
+<body>
+	<form action="">
+		<fieldset>
+
+			<legend>学生档案</legend>
+
+			<p><label>姓名：<input type="text" name="userName" placeholder="请输入学生姓名"  /></label></p>
+
+			<p><label>手机号：<input type="tel" name="userTel"  placeholder="请输入手机号码" /></label></p>
+
+			<p><label>邮箱：<input type="email" name="userEmail" placeholder="请输入邮箱地址" /></label></p>
+
+			<p><label>所属学院：<input type="text" name="userSchool"  placeholder="请选择/输入学院"  list="schoolList" /></label></p>
+			<datalist id="schoolList">
+				<option>北京大学</option>
+				<option>清华大学</option>
+				<option>澳门大学</option>
+				<option>广州大学</option>
+				<option>四川大学</option>
+				<option>成都理工大学</option>
+				<option>重庆理工大学</option>
+				<option>西南交通大学</option>
+				<option>电子科技大学</option>
+				<option>四川农业大学</option>
+				<option>四川文理学院</option>
+			</datalist>
+
+			<p><label>出生日期：<input type="date" name="userAge" /></label></p>
+
+			<p><label>成绩：<input type="number" name="userAchievement" placeholder="请输入成绩" /></label></p>
+
+			<p><label>毕业时间：<input type="month" /></label></p>
+
+			<input type="submit" name="" /> &nbsp;&nbsp;&nbsp; <input type="reset" name="" />
+
+		</fieldset>
+	</form>
+</body>
+</html>

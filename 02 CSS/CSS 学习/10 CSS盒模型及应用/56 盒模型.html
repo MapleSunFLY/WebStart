@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>盒模型</title>
+	<style type="text/css">
+		div:first-child {
+			width: 200px;
+			height: 200px;
+			background-color: pink;
+			box-sizing: content-box; /* 以前的盒模型 w3c推荐的 */
+			padding: 10px;
+			border:15px solid red;
+			/* 默认和，模型 盒子大小为 width + padding 
+			content-box：此值为默认值，让元素维持w3c的标准Box Mode */
+		}
+
+		div:last-child {
+			width: 200px;
+			height: 200px;
+			background-color: red;
+			padding: 10px;
+			border:15px solid pink;
+			box-sizing: border-box;/*C3新盒模型 padding border 不修改盒子大小 */
+		}
+	</style>
+</head>
+<body>
+	<div>content-box</div>
+	<br>
+	<div></div>
+</body>
+</html>

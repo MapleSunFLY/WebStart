@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>04 点击按钮动态创建列表</title>
+</head>
+<body>
+	<input type="button" value="按钮" id="btn">
+	<div id="box"></div>
+
+	<script type="text/javascript" src="common.js"></script>
+	<script type="text/javascript">
+
+		var datas = ['西施','静静','杨玉环','貂蝉','王昭君'];
+		var box = my$('box');
+		my$('btn').onclick = function () {
+			var ul = document.createElement('ul');
+			box.appendChild(ul);
+
+			for (var i = 0; i < datas.length; i++) {
+				var name = datas[i];
+				var li = document.createElement('li');
+				ul.appendChild(li);
+				setInnerText(li,name);
+
+				//鼠标经过 先创建方法 然后赋值 减少在内存中多次创建
+				li.onmouseover = liMouseOver;
+
+				//鼠标离开 先创建方法 然后赋值 减少在内存中多次创建
+				li.onmouseout = liMouseout;
+			}
+
+			function liMouseOver() {
+				//设置背景颜色
+				this.style.backgroundColor = 'red';
+			}
+
+			function liMouseout() {
+				//还原背景颜色
+				this.style.backgroundColor = '';
+			}
+			
+		}
+	</script>
+</body>
+</html>

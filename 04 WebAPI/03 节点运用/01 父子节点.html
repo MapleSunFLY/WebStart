@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>01 父子节点</title>
+</head>
+<body>
+
+	<div id="box">
+		<span>我说span</span>
+		<p>你好</p>
+		<!-- 注解中 -->
+	</div>
+
+	<script type="text/javascript">
+		
+		// 节点相关属性
+		// · nodeType 节点类型
+		// 		· 1 元素节点
+		// 		· 2 属性节点
+		// 		· 3 文本节点
+		//  · nodeName 节点名称
+		//  · nodeValue 节点值
+		//  	· 1 元素节点的nodeValue始终是null
+		
+		// 父子结构
+		// parentNode 获取父节点 只有一个
+		// childNodes 获取子节点 有多个
+		
+		var box = document.getElementById("box");
+		console.dir(box);
+		//数组长度为7 子节点包含 标签注释前后的换行文本，这属于文本节点
+		console.log(box.childNodes);
+
+		// 属性节点，元素节点，文本节点，注释节点 
+		// 获取元素节点
+		for (var i = 0; i < box.childNodes.length; i++) {
+			var node = box.childNodes[i];
+			if (node.nodeType === 1) {
+				console.log(node);
+			}
+		}
+
+
+		//获取元素节点 兼容性问题 IE6-8 可能会包含 注释节点  自动变化的，增加减少元素数组长度会变化
+		console.log(box.children);
+
+		// 获取第一个子节点和最后一个子节点 
+		
+		// 获取第一个子节点
+		console.log(box.firstChild); 
+
+		// 获取最后一个子节点
+		 console.log(box.lastChild);  
+		// 一般第一个和最后一个子节点都是文本节点
+		
+		// 获取第一个和最后一个子元素 IE9之前不可用
+		
+		// 获取第一个子元素
+		console.log(box.firstElementChild); 
+
+		// 获取最后一个子元素
+		 console.log(box.lastElementChild);  
+		
+
+	</script>
+</body>
+</html>

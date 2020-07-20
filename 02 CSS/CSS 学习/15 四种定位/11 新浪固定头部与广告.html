@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>11 新浪固定头部与广告</title>
+	<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+		}
+
+		.top{
+			height: 44px;
+			background: url(../images/top.png) no-repeat top center;
+			position: fixed;
+			width: 100%; /* 固定定位的盒子一定要有宽和高 除非有内容撑开 不用写*/
+			top: 0;
+			left: 0;
+		}
+
+		.ad-l,
+		.ad-r{
+			position: fixed;
+			top: 100px;
+		}
+
+		.ad-l{
+			left: 0;
+		}
+
+		.ad-r{
+			right: 0;
+		}
+
+		.box{
+			width: 1002px;
+			margin: 45px auto;
+		}
+	</style>
+</head>
+<body>
+	<div class="top"></div>
+	<div class="ad-l"><img src="../images/ad-l.png"></div>
+	<div class="ad-r"><img src="../images/ad-r.png"></div>
+	<div class="box">
+		<img src="../images/box.png">
+	</div>
+</body>
+</html>

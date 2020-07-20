@@ -1,0 +1,384 @@
+@font-face {
+  font-family: 'icomoon';
+  src:  url('../fonts/icomoon.eot?qg32uj');
+  src:  url('../fonts/icomoon.eot?qg32uj#iefix') format('embedded-opentype'),
+    url('../fonts/icomoon.ttf?qg32uj') format('truetype'),
+    url('../fonts/icomoon.woff?qg32uj') format('woff'),
+    url('../fonts/icomoon.svg?qg32uj#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+.w { /* 版心公共css */
+	width: 1190px; /* 京东版心 */
+	margin: 0 auto; /* 水平居中对齐 */
+}
+
+.fl { /* 左浮动 */
+	float: left;
+}
+
+.fr { /* 右浮动 */
+	float: right;
+}
+
+img {
+	vertical-align: top; /* 取消图片底侧有缝隙 */
+}
+
+body {
+	background-color: #f6f6f6;
+}
+
+.primaryColor {
+	color: #f10215!important;/*增加公共颜色权重，防止被覆盖*/
+}
+
+a { /* 取消链接下划线 */
+	text-decoration: none;
+	font-size: 12px; /* 内部文本大小 */
+	color: #999999;/* 内部文本颜色 */
+}
+
+a:hover {
+	color: #c81623; 
+}
+
+.overflow {
+	overflow: hidden;
+}
+
+blockquote,body,button,dd,dl,dt,fieldset,form,h1,h2,h3,h4,h5,h6,hr,input,legend,li,ol,p,pre,td,textarea,th,ul { /* 清空列表样式 */
+	margin: 0;
+	padding: 0;
+}
+
+input,button {
+	border: 0;
+	outline: none; 	/* 取消轮廓边框 */
+}
+
+ul { /* 清空列表样式 */
+	list-style: none;
+}
+
+header {
+	height: 80px;
+	background-color: #020000;
+}
+
+/* 导航栏start */
+.shortcut {
+	background-color: #e3e4e5;
+	height: 30px;
+	line-height: 30px; /* 行高等于高 居中 */
+	border-bottom: 1px solid #dddddd;
+}
+
+.city { /* 城市 */
+	margin-left: 200px;
+	font-size: 12px; /* 内部文本大小 */
+	color: #999999;/* 内部文本颜色 */
+}
+
+.shortcut li {
+	float: left;
+}
+
+.shortcut i {
+	font-family: "icomoon";
+    font-style: normal;
+    color: #999999;
+}
+
+.space { /* 竖线 */
+	width: 1px;
+	height: 10px;
+	background-color: #cccccc;
+	margin: 12px 20px 0;
+}
+
+.mobile {
+	position: relative;
+}
+
+.mobile img {
+	position: absolute;/*绝对定位不占位置*/
+	left: -5px;
+	top: 25px;
+	border: 1px solid #cccccc; /* 边框 1px  */
+	padding: 2px;
+}
+/* 导航栏end */
+
+/* 中间头部分start */
+.middle {
+	height: 140px;
+	position: relative;/* 父相对定位 */
+}
+
+.logo {
+	position: absolute;/* 子绝对定位 */
+	top: -30px;
+	left: 0;
+	box-shadow: 2px 4px 8px rgba(0,0,0,0.1); /* 阴影： 水平 垂直 模糊距离 阴影颜色 */
+}
+
+.logo a {
+	width: 190px;
+	height: 170px;
+	display: block;/* 转换为块级元素 */
+	background: #ffffff url(../images/logo.png)  no-repeat;
+}
+
+.search {
+	width: 550px;
+	height: 35px;
+	position: absolute;
+	top: 25px;
+	left: 320px;
+}
+
+.search input {
+	width: 493px;
+	height: 33px;
+	border: 1px solid #f10215;
+	font-size: 14px;
+	padding-left: 5px;
+}
+
+.search button {
+	width: 50px;
+	height: 35px;
+	background-color:  #f10215;
+}
+
+.search button i {
+	font-family: "icomoon";
+    font-style: normal; /* 去除倾斜 */
+    color: #fff;
+}
+
+.shopCar {
+	width: 188px;
+	height: 33px;
+	line-height: 33px;
+	border: 1px solid #ededed;
+	position: absolute;
+	top: 25px;
+	right: 95px;
+	background-color: #fff;
+	text-align: center;
+	color: #f10215;
+}
+
+.shopCar i {
+	font-family: "icomoon";
+    font-style: normal; /* 去除倾斜 */
+    margin-right: 5px;
+}
+
+.shopCar span {
+	width: 15px;
+	height: 15px;
+	color: #fff;
+	background-color: #f10215;
+	border-radius: 50%;/* 圆角 */
+	position: absolute;
+	top: 5px;
+	right: 30px;
+	font-size: 12px;
+	line-height: 15px;
+}
+
+.keyWords {
+	position: absolute;
+	top: 60px;
+	left: 320px;
+}
+
+.keyWords a {
+	padding-right: 10px;
+}
+
+.navigation {
+	width: 700px;
+	height: 40px;
+	position: absolute;
+	bottom: 0px;
+	left: 200px;
+	line-height: 40px;
+}
+
+.navigation li {
+	float: left;/* 左侧浮动 */
+	margin-left: 30px;
+}
+
+.navigation li a {
+	font-size: 14px;
+	font-weight: 700;/* 字体加粗 */
+	color: #555;
+}
+
+.navigation li a:hover {/* 鼠标经过 */
+	color:  #f10215;
+}
+
+.navigation .space {
+	margin: 16px -15px 0 15px;
+}
+
+/* 中间头部分end */
+
+/* 页面底部 start */
+footer {
+	margin-top: 35px;
+	height: 500px;
+	background-color: #EAEAEA;
+}
+
+footer a {
+	color: #666;
+}
+
+.service {
+	padding: 30px 0;
+	border-bottom: 1px solid #DEDEDE;
+	overflow: hidden;/* 移除浮动 浮动后也有高度 */
+}
+
+.service ul li {
+	width: 297px;
+	height: 43px;
+	position: relative;
+	line-height: 43px;
+	float: left;/* 左浮动 */
+}
+
+.service li p {
+	font-weight: 700;/* 字体加粗 */
+	margin-left: 82px;
+}
+
+.service li h5 {
+	position: absolute;
+	top: 0;
+	left: 38px;
+	width: 36px;
+	height: 43px;
+	background:url(../images/ico.png) no-repeat ;/* 精灵图 no-repeat不平铺 */
+	text-indent: -9999px;/* 缩进 */
+}
+
+.service li:nth-child(2) h5 {
+	background-position: 0 -43px;
+}
+
+.service li:nth-child(3) h5 {
+	background-position: 0 -86px;
+}
+
+.service li:nth-child(4) h5 {
+	background-position: bottom;
+}
+
+.help {
+	height: 200px;
+	border-bottom: 1px solid #DEDEDE;
+	padding-top: 25px;
+	box-sizing: border-box;/* 修改边框边距计算方式，内边计算在盒模型内部 */
+}
+
+.help dl {
+	width: 192px;
+	float: left;
+}
+
+.help dt,
+.coverage h5 {
+	height: 30px;
+	font-size: 14px;
+	color: #666;
+}
+
+.help dd {
+	height: 22px;
+	color: #666;/* 内部文本颜色 */
+}
+
+.coverage {
+	width: 200px;
+	height: 150px;
+	background: url(../images/ico_footer.png) no-repeat ;
+}
+
+.coverage h5 {
+	text-align: center;
+}
+
+.coverage p {
+	width: 180px;
+	font-size: 12px;
+	color: #666;/* 内部文本颜色 */
+	line-height: 18px;
+}
+
+.coverage a {
+	width: 180px;
+	margin-top: 5px;
+	text-align: right;
+	display: block;/* 元素转换为块级元素 */
+}
+
+.copyright {
+	padding-top: 20px;
+	text-align: center;
+	color: #666;
+	font-size: 12px;
+}
+
+.copyright span {
+	margin: 0 8px;
+	color: #aaa;
+}
+
+.copyright div {
+	margin-top: 20px;
+}
+
+.copyright div p {
+	line-height: 22px; /* 行高 */
+	color: #999;
+}
+
+.footIcon a {
+	display: inline-block;/* 元素转换为行内块级元素 方便居中对齐 */
+	text-align: center; /* 行内块居中对齐 */
+	width: 103px;
+	height: 33px;
+	margin: 20px 4px 0;
+	background:url(../images/ico_footer.png) no-repeat 0 -150px;
+}
+
+.footIcon a:nth-child(2) {
+	background-position: -103px -150px;
+}
+
+.footIcon a:nth-child(3) {
+	background-position: 0 -183px;
+}
+
+.footIcon a:nth-child(4) {
+	background-position: -103px -183px;
+}
+
+.footIcon a:nth-child(5) {
+	background-position: 0 -216px;
+}
+
+.footIcon a:nth-child(6) {
+	background-position: -103px -216px;
+}
+/* 页面底部 end */

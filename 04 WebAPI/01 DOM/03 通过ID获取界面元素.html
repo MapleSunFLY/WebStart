@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>03 获取界面元素</title>
+	<script type="text/javascript">
+		// 不能在这里通过ID获取 代码由上向下执行
+		
+		//通过标签名称可以
+		var divs = document.getElementsByTagName("div")
+		console.dir(divs.length);
+		//获取标签名称是动态获取的，增加一个对应标签，对应的集合也会增加
+	</script>
+</head>
+<body>
+	<div id="main">main</div><!-- id区分大小写 -->
+	<div>common</div>
+	<p>p1</p>
+	<p>p2</p>]
+
+	<script type="text/javascript">
+
+		//通过id获取元素
+		var main = document.getElementById("main");
+		console.log(main);
+		console.dir(main);//用于打印对象，不做任何处理
+
+		//通过标签名称获取【
+		console.dir(divs.length);
+		console.dir(divs);
+	</script>
+
+	<div id="content">
+		<div></div>
+		<div></div>
+	</div>
+
+	<script type="text/javascript">
+		
+		//通过id获取父级div
+		var content = document.getElementById("content");
+
+		//通过父级对象标签获取父级内所有相同标签
+		var divs = content.getElementsByTagName("div");
+
+
+
+	</script>
+</body>
+</html>

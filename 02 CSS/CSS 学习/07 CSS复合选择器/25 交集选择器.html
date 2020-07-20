@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>交集选择器</title>
+
+	<style type="text/css">
+		.cartoon { /* 类选择器 */
+			color: pink;
+		}
+
+		div.cartoon { /* 交集选择器 ，第一个是标签，第二个是class或者id，表示 既是div又是class为cartoon的满足条件 */
+			font-weight: bold;
+		}
+	</style>
+</head>
+<body>
+	<div class="cartoon">纲手</div>
+	<div class="cartoon">雏田</div>
+	<P class="cartoon">女帝</P>
+	<P class="cartoon">罗宾</P>
+</body>
+</html>

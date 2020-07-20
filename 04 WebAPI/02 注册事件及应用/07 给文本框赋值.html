@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>07 给文本框赋值</title>
+</head>
+<body>
+	<input type="text">
+	<br>
+	<input type="text">
+	<br>
+	<input type="text">
+	<br>
+	<input type="text">
+	<br>
+	<input type="text">
+	<br>
+	<input type="text">
+	<br>
+	<input type="text">
+	<br>
+	<input type="text">
+	<br>
+	<input type="text">
+	<br>
+	<input id="btn" type="button" value="获取文本框值">
+
+	<script type="text/javascript">
+		
+		var inputs = document.getElementsByTagName("input");
+
+		for (var i = 0; i < inputs.length; i++) {
+			var input = inputs[i]
+			if ('text' === input.type) {
+				input.value = i;
+			}
+		}
+
+		var btn  = document.getElementById("btn");
+		btn.onclick = function () {
+
+			var texts = [];
+
+			for (var i = 0; i < inputs.length; i++) {
+				var input = inputs[i]
+				if ('text' === input.type) {
+					texts.push(input.value);
+				}
+			}
+
+			console.log(texts.join('|'));
+		}
+	</script>
+</body>
+</html>

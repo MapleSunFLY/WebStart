@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>02 client系列属性</title>
+	<style type="text/css">
+		body {
+			margin: 0;
+		}
+
+		#box {
+			width: 100px;
+			height: 100px;
+			margin: 50px;
+			border: 10px solid #ff0;
+			padding: 10px;
+			background-color: pink;
+		}
+	</style>
+</head>
+<body>
+	<div id="box">
+		
+	</div>
+
+	<script type="text/javascript">
+		// client
+		var box = document.getElementById('box');
+
+		// clientLeft border-left 的宽度
+		// clientTop  border-top 的高度
+		console.log(box.clientLeft);
+		console.log(box.clientTop);
+
+		//获取大小
+		console.log(box.clientWidth);
+		console.log(box.clientHeight);
+	</script>
+</body>
+</html>

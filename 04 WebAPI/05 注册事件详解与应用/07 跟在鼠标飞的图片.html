@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>07 跟在鼠标飞的图片</title>
+	<style type="text/css">
+		#img { /* 需要先脱标 */
+			position: absolute;
+		}
+	</style>
+</head>
+<body>
+	<img src="images/tianshi.gif" id="img">
+
+	<script type="text/javascript">
+		var img = document.getElementById('img');
+
+		document.onmousemove = function (e) {
+			e = e || window.event;
+
+			img.style.left = e.clientX - 50 + 'px';
+			img.style.top = e.clientY - 15  + 'px';
+		}
+	</script>
+</body>
+</html>

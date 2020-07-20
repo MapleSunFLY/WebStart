@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>06 location对象</title>
+</head>
+<body>
+	<input type="button" value="跳转" id="btn">
+	<script type="text/javascript">
+		// window.location;
+		// 可以获取、设置地址栏地址
+		var btn = document.getElementById('btn');
+		btn.onclick = function () {
+			console.log(location.href);
+
+			location.href = 'http://www.baidu.com';
+
+			//assign 委派
+			//
+		}
+	</script>
+</body>
+</html>

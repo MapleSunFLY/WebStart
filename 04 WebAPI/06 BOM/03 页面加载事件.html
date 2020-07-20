@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>03 页面加载事件</title>
+	<!-- 代码由上往下执行 在标签代码未执行时无法获取当前标签 -->
+	<script type="text/javascript">
+		var box = document.getElementById('box');
+		console.log(box);
+
+		// BOM 中方法 onload 页面加载完成后执行
+		// 页面加载完成是指：页面上所有元素创建完毕，并且引用的外部资源下载完毕（包括：js、css、图片）
+		// 所有元素都有onload事件
+		// window.onload = function () {
+		onload = function () {
+			var box = document.getElementById('box');
+			console.log(box);
+		}
+
+		onunload = function () {
+			//在onunload中所有对话框都不能使用 window被冻结了
+		}
+
+		// F5 刷新界面
+		// 1 卸载界面
+		// 2 重新加载界面
+	</script>
+</head>
+<body>
+	<div id="box"></div>
+
+	<script type="text/javascript">
+		// 写在body结束之前，所有元素加载完成，不需要等图片加载完成
+	</script>
+</body>
+</html>

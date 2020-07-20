@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>43 优先级</title>
+	<style type="text/css">
+		/* 权重的特殊公式 0，0，0，0 权重越高的优先显示  权重相同的按 层叠性 显示*/
+
+		/* 行内样式表 1，0，0，0 */
+		div { /* 标签选择器 0，0，0，1 */
+			color: #F0F!important;	/* !important 级别最高 一旦出现优先设置 */
+		}
+
+		#wang { /* id选择器 0,1,0,0 */
+			color: #FF0;
+		}
+
+		.king { /* 类选择器 0，0，1，0 */
+			color: #F00;
+		}
+
+		:first-child { /* 伪类选择器 0，0，1，0 */
+			color: #0f0;
+		}
+
+		div { /* 标签选择器 0，0，0，1 */
+			color: #00f;	
+		}
+
+	</style>
+</head>
+<body>
+	<div id="wang" class="king" style="color: #0FF">王者荣耀</div>
+</body>
+</html>

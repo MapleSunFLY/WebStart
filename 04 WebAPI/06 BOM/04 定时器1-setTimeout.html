@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>04 定时器1-setTimeout</title>
+</head>
+<body>
+	<input type="button" value="开始" id="btnStart">
+	<input type="button" value="取消" id="btnEnd">
+
+	<script type="text/javascript">
+		// setTimeout()  倒计时：隔一段时间执行，并执行一次
+		// setInterval() 顺计时（闹钟）：隔一段时间执行，并执行多次
+		
+		var btnStart = document.getElementById('btnStart');
+
+		// 计时器标识
+		var timeId;
+		btnStart.onclick = function () {
+			// window.setTimeout();
+			// 参数1 执行的函数 可以匿名也可以名命
+			// 参数2 计时的时间 毫秒
+			// 返回 当前计时器标识
+			timeId = setTimeout(function () {
+				console.log('时间到了');
+			},5000)
+		}
+
+		var btnEnd = document.getElementById('btnEnd');
+		btnEnd.onclick = function () {
+			clearTimeout(timeId);
+		}
+	</script>
+</body>
+</html>

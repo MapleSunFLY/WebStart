@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>13 模拟DOM结构</title>
+</head>
+<body>
+
+	<div id="box">hello</div>
+	<script type="text/javascript">
+		
+		// DOM 文档树
+		// ----节点
+		// --------元素节点
+		// --------属性节点
+		// --------文本节点
+		// --------注释节点
+		
+		var box = document.getElementById("box");
+
+		//成员
+		console.dir(box);
+
+		//创建一系列具有相同属性的对象 构造函数
+		
+		function Node(options) {
+			//正常判断
+			// if (options.className) {
+			// 	this.className = options.className;
+			// } else {
+			// 	this.className = '';
+			// }
+			
+			// 三目运算
+			this.className = options.className ？ options.className : '';
+
+			// || 或运算， 两边都不是布尔类型时 
+			// 当第一个运算符转换为布尔类型为true，则返回当前运算符
+			// 当第一个运算符转换为布尔类型为false，则返回第二个运算符
+			this.className = options.className || ''
+		}
+
+	</script>
+</body>
+</html>

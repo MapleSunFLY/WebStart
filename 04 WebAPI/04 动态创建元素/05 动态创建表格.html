@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>05 动态创建表格</title>
+	<style type="text/css">
+		#box table {
+			border-collapse: collapse;/* 边线重合值显示一条边线 */
+		}
+	</style>
+</head>
+<body>
+	
+	<div id="box"></div>
+
+	<script type="text/javascript" src="common.js"></script>
+	<script type="text/javascript">
+
+		var datas = [
+			{name:'静静', subject:'语文', score:70},
+			{name:'文文', subject:'数学', score:80},
+			{name:'西施', subject:'语文', score:60},
+			{name:'貂蝉', subject:'数学', score:90},
+			{name:'王昭', subject:'语文', score:100},
+			{name:'不知', subject:'数学', score:80},
+			{name:'杨玉', subject:'语文', score:90}
+		]
+
+		var titles = ['姓名','科目','成绩','操作']
+
+		//创建表格
+		var table = document.createElement('table');
+		my$('box').appendChild(table);
+		table.border = '1px';
+		table.width = '400px';
+
+
+		//创建表头
+		var thead = document.createElement('thead');
+		table.appendChild(thead);
+
+
+		var tr = document.createElement('tr');
+		thead.appendChild(tr);
+		tr.style.height = '40px';
+		tr.style.backgroundColor = '#ccc';
+
+		for (var i = 0; i < titles.length; i++) {
+			var title = titles[i];
+			var th = document.createElement('th');
+			tr.appendChild(th);
+			setInnerText(th,title);
+		}
+
+		//创建表格体
+		var tbody = document.createElement('tbody');
+		table.appendChild(tbody);
+
+		// 居中
+		tbody.style.textAlign = 'center';
+
+		for (var i = 0; i < datas.length; i++) {
+			var data = datas[i];
+			tr = document.createElement('tr');
+			tbody.appendChild(tr);
+
+			//遍历对象
+			for(var key in data){
+				var td = document.createElement('td');
+				tr.appendChild(td);
+				setInnerText(td,data[key]);
+			}
+			
+			//删除
+			var td = document.createElement('td');
+			tr.appendChild(td);
+			var link = document.createElement('a');
+			link.href = 'javascript:void(0)';
+			td.appendChild(link)
+			setInnerText(link,'删除');
+			link.onclick = deleteTr;
+		}
+
+		function deleteTr() {
+			// 获取当前元素父元素
+			// td = this.parentNode;
+			// tr = td.parentNode;
+			tr = this.parentNode.parentNode;
+			tbody.removeChild(tr);
+			return false;
+		}
+	</script>
+
+</body>
+</html>

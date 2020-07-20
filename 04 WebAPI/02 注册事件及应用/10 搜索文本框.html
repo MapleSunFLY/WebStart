@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>10 搜索文本框</title>
+	<style type="text/css">
+		.gray {
+			color: gray;
+		}
+
+		.black {
+			color: black;
+		}
+	</style>
+</head>
+<body>
+	<input type="text" class="gray" value="请输入关键字" id="txtSearch">
+	<input type="button" value="搜索" id="btn">
+
+	<script type="text/javascript">
+
+		var txtSearch = document.getElementById("txtSearch");
+		var btn = document.getElementById("btn");
+
+		//获取焦点的事情 focus
+		txtSearch.onfocus = function () {
+			if ('请输入关键字' === this.value) {
+				this.value = '';
+				this.className = 'black';
+			}
+		}
+
+		//失去焦点名称 blur
+		txtSearch.onblur = function (){
+			if (0 === this.value.length || '请输入关键字' === this.value) {
+				this.value = '请输入关键字';
+				this.className = 'gray';
+			}
+		}
+	</script>
+</body>
+</html>

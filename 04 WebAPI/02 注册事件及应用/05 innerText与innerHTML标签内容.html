@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>05 innerText与innerHTML标签内容</title>
+</head>
+<body>
+	<div id="box">
+		我是一个div
+		<span>这是一个span</span>
+		<p>这是一个p</p>
+	</div>
+
+	<script type="text/javascript">
+		var box = document.getElementById("box");
+
+		console.dir(box);
+
+		//innerText与innerHTML 可以获取开始标签和结束标签的内容
+		
+		//innerHTML 包含html标签 且将代码原封不动的展示出来
+		console.log(box.innerHTML);
+
+		//innerText 只包含文字 不包含标签 不包含空格换行 只显示文本内容
+		console.log(box.innerText);
+	</script>
+</body>
+</html>

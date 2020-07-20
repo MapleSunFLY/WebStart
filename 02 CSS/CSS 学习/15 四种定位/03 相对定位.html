@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>相对定位（relative）</title>
+	<style type="text/css">
+		
+		div {
+			width: 100px;
+			height: 100px;
+			background-color: pink;
+		}
+
+		div:nth-child(2) { /* 定位主要目的是为了移动位置 */
+			background-color: #ff0;
+			position: relative;/*  相对定位：相对于直接原来的位置进行移动，并且原来占有的位置依然存在 相对定位不脱离标准流 */
+			top: 20px;
+			left: 80px;
+		}
+	</style>
+</head>
+<body>
+	<div></div>
+	<div></div>
+	<div></div>
+</body>
+</html>

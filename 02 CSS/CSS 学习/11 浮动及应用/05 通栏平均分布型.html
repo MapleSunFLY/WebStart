@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>通栏平均分布型</title>
+	<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+		}
+
+		ul {
+			list-style: none;
+		}
+
+		.top,
+		.banner,
+		.main ul li,
+		.footer {
+			border: 1px solid #EDEDED;
+			text-align: center;
+		}
+
+		.top{
+			height: 100px;
+			margin-bottom: 10px;
+		}
+
+		.banner,
+		.main {
+			width: 960px;
+			margin: 0 auto;
+			margin-bottom: 10px;
+		}
+
+		.banner {
+			height: 200px;
+		}
+
+		.main,
+		.main ul li {
+			height: 150px;
+		}
+
+		.main ul li {
+			width: 230px;
+			float: left;
+			border: 1px solid #EDEDED;
+			margin-right: 10px;
+		}
+
+		.main .nomargin {
+			float: right;
+			margin-right: 0;
+		}
+
+		.footer {
+			height: 200px;
+		}
+
+	</style>
+</head>
+<body>
+	<div class="top">top</div>
+	<div class="banner">banner</div>
+	<div class="main">
+		<ul>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li class="nomargin">4</li>
+		</ul>
+	</div>
+	<div class="main">
+		<ul>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li class="nomargin">4</li>
+		</ul>
+	</div>
+	<div class="main">
+		<ul>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li class="nomargin">4</li>
+		</ul>
+	</div>
+	<div class="footer">footer</div>
+</body>
+</html>

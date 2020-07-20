@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>05 定时器2-setInterval</title>
+</head>
+<body>
+	<input type="button" value="开始" id="btnStart">
+	<input type="button" value="取消" id="btnEnd">
+
+	<script type="text/javascript">
+		// setTimeout()  倒计时：隔一段时间执行，并执行一次
+		// setInterval() 顺计时（闹钟）：隔一段时间执行，并执行多次
+		
+		var btnStart = document.getElementById('btnStart');
+
+		// 计时器标识
+		var timeId;
+		btnStart.onclick = function () {
+			// window.setInterval()
+			// 参数1 重复执行的方法 
+			// 参数2 多长时间执行一次 单位毫秒
+			timeId = setInterval(function () {
+				console.log('一秒了');
+			}, 1000)
+			console.log(timeId);
+		}
+
+		var btnEnd = document.getElementById('btnEnd');
+		btnEnd.onclick = function () {
+			clearInterval(timeId);
+			timeId = null;
+			console.log(timeId);
+		}
+	</script>
+</body>
+</html>

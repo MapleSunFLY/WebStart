@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>父级有定位</title>
+	<style type="text/css">
+		
+		.father {
+			width: 200px;
+			height: 200px;
+			background-color: pink;
+			margin: 100px;
+			position: relative; /* 父级元素有定位，根据最近一级父级来进行定位 */
+		}
+
+		.son1{
+			width: 100px;
+			height: 80px;
+			background-color: #ff0;
+			position: absolute;/* 绝对定位：父级盒子没有定位时，子级盒子以浏览器为基准点对齐 且不占有位置 */
+			top: 30px;
+			left:30px;
+		}
+
+		.son2{
+			width: 100px;
+			height: 80px;
+			background-color: #f0f;
+		}
+	</style>
+</head>
+<body>
+	<div class="father">
+		<div class="son1"></div>
+		<div class="son2"></div>
+	</div>
+</body>
+</html>

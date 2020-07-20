@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>01 注册事件</title>
+</head>
+<body>
+	<input type="button" value="按钮" id="btn">
+
+	<script type="text/javascript">
+
+		var btn = document.getElementById('btn');
+
+		// 01 直接设置方法内容 会被覆盖 不会多次设置
+		btn.onclick = function () {
+			alert('onclick function 1');
+		}
+
+		btn.onclick = function () {
+			alert('onclick function 2');
+		}
+
+		// 02 addEventListener 添加监听事件 会叠加不会被覆盖
+		// addEventListener方法参数
+		// type 监听事件类型
+		// listener 监听事件 方法
+		// options 选填 指定一个listener属性的可选参数对象 具体查表
+		// 存在浏览器兼容性问题，IE9以后可以使用
+		btn.addEventListener('click', function () {
+			alert('addEventListener 1');
+		})
+		btn.addEventListener('click', function () {
+			alert('addEventListener 2');
+		})
+
+		// 03 attachEvent IE特有方法支持IE6-10
+		// attachEvent方法参数
+		// type 监听事件类型前面加on
+		// listener 监听事件 方法
+		// btn.attachEvent('onclick',function () {
+		// 	alert('attachEvent 1');
+		// });
+	</script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>31 伪元素选择器</title>
+	<style type="text/css">
+		/* .demo 类选择器
+		:first-child  伪类选择器
+		::first-child 伪元素选择器 */
+
+		p::first-letter { /* 选择第一个字 */
+			color: red;
+			font-size: 30px;
+		}
+
+		p::first-line { /* 选择第一行 */
+			color: pink;
+		}
+
+		p::selection { /* 选择 选中后的文字 */
+			color: #000;
+			background: #0FF;
+		}
+
+		div::before { /* 在盒子的前面加入content内容 */
+			content: "我";
+		}
+
+		div::after { /* 在盒子的最后加入content内容 */
+			content: "18岁";
+		}
+	</style>
+</head>
+<body>
+	<h1>枫羽望空</h1>
+	<p>
+		主App被系统 “安装” 调用，这个过程由系统提高，而插件apk并非被系统安装，简而言之，需要将插件apk看成一个 “非apk” 文件，只是一个结构复杂的文件，在主app需要时会调用这个文件的一些资源。调用插件即用某种特殊的方式打开这个文件。
+	</p>
+
+	<div>今年</div>
+</body>
+</html>

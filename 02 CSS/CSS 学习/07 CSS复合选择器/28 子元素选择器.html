@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>28 子元素选择器</title>
+	<style type="text/css">
+		
+		.one li {
+			color: pink;
+		}
+
+		.one > li {
+			color: #F00;
+		}
+
+	</style>
+</head>
+<body>
+
+	子元素选择器只修改下一级的类容，不修改下二级和三级类容
+	<ul class="one">
+		<li>AA <!-- 第一级 -->
+			<ul><!-- 第二级 -->
+				<li>AA</li><!-- 第三级 -->
+				<li>BB</li>
+				<li>BB</li>
+			</ul>
+		</li>
+
+		<li>BB
+			<ul><!-- 第二级 -->
+				<li>AA</li><!-- 第三级 -->
+				<li>BB</li>
+				<li>BB</li>
+			</ul>
+		</li>
+
+		<li>CC<!-- 第一级 -->
+			<ul><!-- 第二级 -->
+				<li>AA</li><!-- 第三级 -->
+				<li>BB</li>
+				<li>BB</li>
+			</ul>
+		</li>
+
+	</ul>
+	
+</body>
+</html>

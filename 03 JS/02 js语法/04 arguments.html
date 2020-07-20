@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>04 arguments</title>
+
+	<script type="text/javascript">
+		
+		function test(){
+			console.log(arguments); /*我们可以通过arguments 获取函数调用时的实参列表 类似数组格式*/
+		}
+
+		test(2,3);
+
+		/*使用*/
+		function getMax(){
+			var max = arguments[0];
+			for (var i = 1; i < arguments.length; i++) {
+				if (max<arguments[i]) {
+					max = arguments[i];
+				}
+			}
+			return max;
+		}
+
+		console.log(getMax(212,23,12,12121,24));
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

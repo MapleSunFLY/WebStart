@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>10 遍历和删除对象属性</title>
+	<script type="text/javascript">
+		
+		var obj = {
+			name: 'aaa',
+			age: 18,
+			sayHi:function (){
+				console.log(this);
+			}
+		}
+
+		// 遍历对象属性
+		for (var key in obj){
+			console.log(key+':+--+:'+obj[key]);
+		}
+
+		// 删除属性
+		var o = {
+			name:'name',
+			say:function () {
+
+			}
+		}
+
+		console.log(o.name);
+		delete o.name;
+		console.log(o.name);
+
+		console.log(o.say);
+		delete o.say;
+		console.log(o.say);
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

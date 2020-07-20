@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>03 scroll系列属性</title>
+	<style type="text/css">
+		body {
+			margin: 0;
+		}
+
+		#box {
+			width: 100px;
+			height: 100px;
+			margin: 50px;
+			border: 10px solid #ff0;
+			padding: 10px;
+			background-color: pink;
+			overflow: auto; /* 内容超出展示滚动条 */
+		}
+	</style>
+</head>
+<body>
+	<div id="box">
+		Foxmail在作为通用邮件收发客户端的同时，将和腾讯企业邮紧密配合，为腾讯企业邮用户提供更好的使用体验。1. 支持读信和写信时实时翻译原文阅读邮件时可以选词翻译和翻译全文，还可与原文对比查看。
+	</div>
+
+	<script type="text/javascript">
+		// scroll
+		var box = document.getElementById('box');
+
+		//box 滚动的距离
+		console.log(box.scrollLeft);
+		console.log(box.scrollTop);
+
+		//文本显示的距离 计算padding距离
+		console.log(box.scrollWidth);
+		console.log(box.scrollHeight);
+
+		//滚动事情
+		box.onscroll = function () {
+			//box 滚动的距离
+			console.log(box.scrollLeft);
+			console.log(box.scrollTop);
+		}
+	</script>
+</body>
+</html>

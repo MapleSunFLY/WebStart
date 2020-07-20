@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>02 动态创建元素方式2</title>
+</head>
+<body>
+	<input type="button" value="你好" id="btnHi">
+	<input type="button" value="美女" id="btnMn">
+	<div id="box"></div>
+	<script type="text/javascript">
+		// 方式2： element.innerHTML;
+		var box = document.getElementById("box");
+		var btnHi = document.getElementById("btnHi");
+		
+		box.innerHTML = 'Hello <p>World</p>';
+
+		btnHi.onclick = function () {
+			box.innerHTML = '你好！ <p>世界</p>';
+		}
+
+		//点击按钮 生成列表，鼠标放上高亮显示
+		var btnMn = document.getElementById('btnMn');
+		var data = ['西施','静静','杨玉环','貂蝉','王昭君'];
+
+		btnMn.onclick = function () {
+			var boxText = [];
+			boxText.push('<ul>');
+			for (var i = 0; i < data.length; i++) {
+				var name = data[i];
+				boxText.push('<li>' + name + '</li>');
+			}
+			boxText.push('</ul>');
+
+			box.innerHTML = boxText.join('');
+		}
+
+	</script>
+</body>
+</html>

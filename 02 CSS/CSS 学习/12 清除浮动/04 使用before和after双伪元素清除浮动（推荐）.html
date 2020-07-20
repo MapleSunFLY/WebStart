@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>使用before和after双伪元素清除浮动（推荐）</title>
+	<style type="text/css">
+		/* 子元素浮动后，父元素没有设置高度时，父元素同级元素会上移 */
+
+		.father {
+			background-color: #000;
+			overflow: hidden; /* 触发BFC BFC可以清除浮动，BFC后边会讲解，先使用 */
+		}
+
+		.one {
+			width: 100px;
+			height: 100px;
+			background-color: red;
+			float: left;
+		}
+
+		.two {
+			width: 100px;
+			height: 120px;
+			background-color: pink;
+			float: left;
+		}
+
+		.three {
+			width: 300px;
+			height: 150px;
+			background-color: #00f;
+		}
+
+		/* 在父级元素最前面与最后都追加一个伪元素，与额外便签性质一样 但是是父级操作，不会影响结构*/
+		.clearfix:before ,.clearfix:after {
+			content: "";
+			display:table;
+		}
+
+		.clearfix:after {
+			clear: both;/* 清除浮动 */
+		}
+
+		.clearfix { /* 兼容IE6、7 */
+			/* *代表IE6、7能识别的特殊符号 带有这个*的属性 只有IE6、7才执行 zoom是IE6、7清除浮动的方法 */
+			*zoom:1;
+		}
+	</style>
+</head>
+<body>
+	<div class="father clearfix">
+		<div class="one"></div>
+		<div class="two"></div>
+	</div>
+
+	<div class="three"></div>
+</body>
+</html>

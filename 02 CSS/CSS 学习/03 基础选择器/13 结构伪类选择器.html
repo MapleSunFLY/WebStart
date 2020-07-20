@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>结构伪类选择器</title>
+	<style type="text/css">
+
+		/* li:first-child { 设置第一个位置的属性
+			color: pink;
+		} */
+
+		/* li:last-child { 设置最后一个位置属性
+			color: purple;
+		} */
+		
+		/* li:nth-child(4) { 从前向后数 设置第四个位置属性 nth-child(n) n是几就是第几个位置 n代表全选 填 odd-奇数位 even-偶数位
+			color: skyblue;
+		} */
+
+		/* li:nth-child(odd) { 设置奇数位属性
+			color: skyblue;
+		} */
+
+		/* li:nth-child(even) { 设置偶数位属性
+			color: skyblue;
+		} */
+
+		/* li:nth-child(3n) { 可以设置公式选择位置 n-0 1 2 3 4 5 6 li从1开始
+			color: skyblue;
+		} */
+
+		li:nth-last-child(even) {  /* nth-last-child 从最后向前数开始数 */
+			color: skyblue;
+		}
+
+	</style>
+</head>
+<body>
+	<ul>
+		<li>第一个孩子</li>
+		<li>第二个孩子</li>
+		<li>第三个孩子</li>
+		<li>第四个孩子</li>
+		<li>第五个孩子</li>
+		<li>第六个孩子</li>
+		<li>第七个孩子</li>
+	</ul>
+</body>
+</html>

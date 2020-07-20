@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>06 innerText与textContent</title>
+</head>
+<body>
+	<div id="box">
+		我是一个div
+		<span>这是一个span</span>
+		<p>这是一个p</p>
+	</div>
+
+	<script type="text/javascript">
+		var box = document.getElementById("box");
+
+		console.dir(box);
+		
+		//innerText 只包含文字 不包含标签 不包含空格换行 只显示文本内容
+		//textContent 只包含文字 不包含标签 不包含空格换行 只显示文本内容
+		console.log(box.textContent);
+		console.log(box.innerText);
+
+		//他们含义一样，至少存在兼容性问题
+		
+		// 谷歌，新版火狐，IE9以上都支持
+		// 旧版火狐，只支持 textContent
+		// IE9以下，只支持 innerText
+		 
+		//兼容做法
+		
+		function getText(element){
+			if (typeof element.innerText === 'string') {
+				return  element.innerText;
+			}else {
+				return  element.textContent;
+			}
+		}
+
+		console.log(getText(box));
+	</script>
+</body>
+</html>

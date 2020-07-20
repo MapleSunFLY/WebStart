@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>02 Math对象</title>]
+	<script type="text/javascript">
+		// Math对象提供了一些与数学相关的属性和方法
+		
+		//Π 
+		console.log(Math.PI);
+
+		//生成随机数
+		console.log(Math.random());
+
+		//向上取整 取大于当前数字的最小整数
+		console.log(Math.ceil(10.6));
+
+		//向下取整 取小于当前数字的最大整数
+		console.log(Math.floor(10.6));
+
+		//四舍五入
+		console.log(Math.round(10.4));
+		console.log(Math.round(10.5));
+
+		// 取10到20的随机整数 [10,20]
+		function getRandom(max,min){
+			// var num = Math.random(); //[0.1) 含小数
+			// num  = Math.random() * max; //[0,max) 含小数
+			// num  = Math.random() * (max-min);//[0,max-min) 含小数
+			// num  = Math.random() * (max-min) + min;//[min,max) 含小数
+			// num  = Math.floor(Math.random() * (max-min) + min);//[min,max) 不含小数 最大为 max-1
+			// num  = Math.floor(Math.random() * (max-min+1) + min);//[min,max+1) 不含小数 最大为 max 及[min,max]
+			
+			return Math.floor(Math.random() * (max - min + 1) + min);
+		}
+
+		console.log(getRandom(0,10));
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

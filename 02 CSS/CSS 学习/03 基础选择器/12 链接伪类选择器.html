@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>链接伪类选择器</title>
+	<style type="text/css">
+
+		/* 链接伪类选择器 必须按照顺序写，否着不会生效 可以缺失 但是不能更换顺序 */
+		a:link {    /* 未访问状态连接配置 */
+			font-size: 16px;
+			color: gray;
+			font-weight: 700;
+		}
+
+		a:visited { 已访问状态连接配置
+			font-size: 16px;
+			color: orange;
+			font-weight: 700;
+		}
+
+		a:hover {  /* 鼠标移动到连接上时配置 */
+			font-size: 16px;
+			color: red;
+			font-weight: 700;
+		}
+
+		a:active { /* 点击连接时配置 */
+			font-size: 16px;
+			color: green;
+			font-weight: 700;
+		}
+
+	</style>
+</head>
+<body>
+	伪类选择器其中的 链接伪类选择器 主要针对与 a
+
+	<div>
+		<a href="#qq"> 秒杀 </a>&nbsp;&nbsp;&nbsp;&nbsp;
+		<a href="#1qq"> 闪购 </a>
+	</div>
+</body>
+</html>

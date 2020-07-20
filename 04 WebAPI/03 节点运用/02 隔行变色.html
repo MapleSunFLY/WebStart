@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>02 隔行变色</title>
+</head>
+<body>
+	<ul id="mn">
+		<li>西施</li>
+		<li>杨玉环</li>
+		<li>貂蝉</li>
+		<li>王昭君</li>
+		<li>嫦娥</li>
+	</ul>
+
+	<script type="text/javascript">
+		
+		var mn = document.getElementById("mn");
+
+		//判断是否有字节点
+		if (mn.hasChildNodes()) {
+			//children 兼容性问题 IE6-8 可能会包含 注释节点  自动变化的，增加减少元素数组长度会变化
+			for (var i = 0; i < mn.children.length; i++) {
+				var li = mn.children[i];
+				if (i % 2 === 0) {
+					li.style.backgroundColor = "red";
+				}else {
+					li.style.backgroundColor = "green";
+				}
+				
+			}
+		}
+
+		
+	</script>
+</body>
+</html>

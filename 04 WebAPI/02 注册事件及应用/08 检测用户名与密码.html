@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>08 检测用户名与密码</title>
+	<style type="text/css">
+		.bgRed {
+			background-color: red;
+		}
+	</style>
+</head>
+<body>
+	<input type="text" id="txtUserName">
+	<input type="text" id="txtUserPassword">
+	<input type="button" value="登 录" id="btnLogin">
+
+	<script type="text/javascript">
+
+		var txtUserName = document.getElementById("txtUserName");
+		var txtUserPassword = document.getElementById("txtUserPassword");
+		var btnLogin = document.getElementById("btnLogin");
+
+		btnLogin.onclick = function () {
+
+			if (txtUserName.value.length < 3 || 
+				txtUserName.value.length > 6) {
+				txtUserName.className = "bgRed";
+				return;
+			}else {
+				txtUserName.className = '';
+			}
+
+			if (txtUserPassword.value.length < 6 || 
+				txtUserPassword.value.length > 8) {
+				txtUserPassword.className = "bgRed";
+				return;
+			}else {
+				txtUserPassword.className = '';
+			}
+
+			console.log("登录成功");
+		}
+	</script>
+</body>
+</html>

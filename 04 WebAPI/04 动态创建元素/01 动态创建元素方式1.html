@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>01 动态创建元素方式1</title>
+</head>
+<body>
+	<h1>标题</h1>
+	<input type="button" value="按钮" id="btn">
+	<br>
+	<script type="text/javascript">
+		// 动态创建页面元素
+		// document.write();
+		// element.innerHTML;
+		// document.createElement
+		
+		// 1 写的方式 document.write();
+		document.write('Hello <p>World</p>');
+
+		var btn = document.getElementById('btn');
+		btn.onclick = function () {
+			// 当在点击按钮时使用document.write(); 输出类容会把之前的整个HTML页面覆盖掉
+			document.write('Hello <p>World</p>');
+		}
+	</script>
+</body>
+</html>

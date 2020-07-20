@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>06 选择水果</title>
+
+	<style type="text/css">
+		select {
+			width: 100px;
+			height: 200px;
+			color: #333;
+			font-size: 16px;
+		}
+	</style>
+</head>
+<body>
+	<!-- multiple 多选 -->
+	<select id="allFruit" multiple="multiple">
+		<option>苹果</option>
+		<option>橘子</option>
+		<option>梨</option>
+		<option>西瓜</option>
+		<option>水蜜桃</option>
+	</select>
+
+	<input type="button" value=">>" id="btnSelectAll">
+	<input type="button" value=">" id="btnSelect">
+	<input type="button" value="<" id='btnRemove'>
+	<input type="button" value="<<" id= 'btnRemoveAll'>
+
+	<select id="selectFruit" multiple="multiple">
+		
+	</select>
+
+	<script type="text/javascript" src="common.js"></script>
+	<script type="text/javascript">
+		
+		var allFruit = my$('allFruit');
+		var selectFruit = my$('selectFruit');
+
+		my$('btnSelectAll').onclick = function () {
+
+			//当元素变化后遍历次数不改变
+			var length = allFruit.children.length;
+
+			for (var i = 0; i < length; i++) {
+				// 当第一项移除后，下面面每一项都变成第一项，所以索引始终是0
+				var option = allFruit.children[0];
+				//appentChild是移动元素，类似于剪切
+				selectFruit.appendChild(option);
+
+			}
+		}
+
+		my$('btnRemoveAll').onclick = function () {
+
+			//当元素变化后遍历次数不改变
+			var length = selectFruit.children.length;
+
+			for (var i = 0; i < length; i++) {
+				// 当第一项移除后，下面面每一项都变成第一项，所以索引始终是0
+				var option = selectFruit.children[0];
+				//appentChild是移动元素，类似于剪切
+				allFruit.appendChild(option);
+
+			}
+		}
+
+		my$('btnSelect').onclick = function () {
+
+			//当元素变化后遍历次数不改变
+			var length = allFruit.children.length;
+
+			var arrayOption = [];
+			for (var i = 0; i < length; i++) {
+				// 当第一项移除后，下面面每一项都变成第一项，所以索引始终是0
+				var option = allFruit.children[i];
+				// 判断option是否选中
+				if (option.selected) {
+					arrayOption.push(option);
+				}
+			}
+
+			for (var i = 0; i < arrayOption.length; i++) {
+				var option = arrayOption[i];
+				option.selected = false;
+				selectFruit.appendChild(option);
+			}
+		}
+
+		my$('btnRemove').onclick = function () {
+
+			//当元素变化后遍历次数不改变
+			var length = selectFruit.children.length;
+
+			var arrayOption = [];
+			for (var i = 0; i < length; i++) {
+				// 当第一项移除后，下面面每一项都变成第一项，所以索引始终是0
+				var option = selectFruit.children[i];
+				// 判断option是否选中
+				if (option.selected) {
+					arrayOption.push(option);
+				}
+			}
+
+			for (var i = 0; i < arrayOption.length; i++) {
+				var option = arrayOption[i];
+				option.selected = false;
+				allFruit.appendChild(option);
+			}
+		}
+	</script>
+</body>
+</html>

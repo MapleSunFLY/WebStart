@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>53 外边距合并问题</title>
+	<style type="text/css">
+		
+		div {
+			width: 200px;
+			height: 200px;
+		}
+
+
+		/* 
+		垂直关系的盒子
+		外边距合并问题 垂直的块级盒子 上下外边距以设置的外边距最大的为准
+		解决办法：避免这种情况出现。只设置一个盒子的外边距即可
+		*/
+		.one {
+			background-color: pink;
+			margin-bottom: 30px;
+		}
+
+		.two {
+			background-color: #F40;
+			margin-top: 10px;
+		}
+
+		/* 
+		嵌套关系的盒子
+		在给子盒子设置外边距时，会设置父级盒子的同样外边距，并且当父级盒子也设置了外边距时，以边距大的为准
+		解决办法： 1.给父级盒子设置边框
+				  2.给父级盒子设置内边距
+				  3.给父级盒子设置 overflow: hidden;属性
+		*/
+		.father {
+			width: 300px;
+			height: 300px;
+			background-color: pink;
+			overflow: hidden;
+		}
+
+		.son {
+			background-color: #F40;
+			margin-top: 30px;
+		}
+	</style>
+</head>
+<body>
+	<div class="one"></div>
+	<div class="two"></div>
+
+	<hr>
+	<hr>
+
+	<div class="father">
+		<div class="son"></div>
+	</div>
+</body>
+</html>

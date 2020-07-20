@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>07 对象</title>
+	<script type="text/javascript">
+		
+		// 真实对象创建 
+		var student = {
+			//属性
+			name: '张飞',
+			age: 20,
+			sex: '男',
+			//行为方法
+			say: function () {
+				console.log("你好！！！，my name " + this.name);
+			}
+		};
+
+		student.say();
+
+		//2 new Object()
+		//Object 是一个构造函数
+		//new 的方式来调用构造函数
+		var hero = new Object();
+		// 添加属性直接赋值
+		hero.name = "黄忠";
+		hero.age = "50"; 
+		hero.say = function (){
+			console.log("你好！！！，my name " + hero.name);
+		};
+
+		hero.say();
+
+		//3 工厂方式
+		function createHero(name,weapon,equipment,blood){
+			var hero = new Object();
+			hero.name = name;
+			hero.weapon = weapon;
+			hero.equipment = equipment;
+			hero.blood = blood;
+			hero.attack = function () {
+				console.log(this.name + '用'+ this.weapon +'攻击了对方');
+			}
+			hero.run = function () {
+				console.log(this.name + '：逃跑了')
+			}
+			return hero;
+		}
+
+		var caocao = createHero('曹操', '青钢剑', ['玄武盔','麒麟甲','虎皮靴'],100);
+		caocao.attack();
+
+		//4 自定义构造函数
+		//new Object();
+		//new Hero();
+		//帕斯卡名命，第一个单词第一个字母大写，后面每一个单词第一个字母都大写
+		//自定义构造函数，就是普通函数，只是约定按这个名命规范写的函数为构造函数
+		function Hero (name,weapon,equipment,blood){
+			//用this 动态添加对象成员变量
+			//this 指向当前函数，再对象被new创建时，指向创建的对象
+			this.name = name;
+			this.weapon = weapon;
+			this.equipment = equipment;
+			this.blood = blood;
+
+			this.attack = function () {
+				console.log(this.name + '用'+ this.weapon +'攻击了对方');
+			} 
+
+			this.run = function () {
+				console.log(this.name + '：逃跑了')
+			}
+		}
+
+		var liubei = new Hero('刘备','雌雄双股剑',['青龙盔','青龙甲','青龙靴'],100);
+		liubei.attack();
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

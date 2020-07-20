@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>19 合并单元格</title>
+</head>
+<body>
+	<table width="500" height="300" border="1" cellspacing="0" cellpadding="10" align="center"> 
+
+		<thead>
+			<tr> 
+				<th>姓名</th>
+				<th>性别</th>
+				<th>年龄</th>
+			</tr>
+		</thead>
+
+		<tbody>
+			<tr> 
+				<td>刘德华</td>
+				<td colspan="2">合并之后的单元格</td> <!-- colspan跨列合并单元格 -->
+			</tr>
+			<tr>
+				<td>静静</td>
+				<td rowspan="2">女</td> <!-- rowspan 跨行合并单元格 -->
+				<td>25</td>
+			</tr>
+			<tr>
+				<td>小尹</td>
+				<td>21</td>
+			</tr>
+		</tbody>
+		
+	</table>
+</body>
+</html>

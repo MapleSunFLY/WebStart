@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>学成网</title>
+	<style type="text/css">
+
+		* { /* 清除内外边距 */
+			margin: 0;
+			padding: 0;
+		}
+
+		ul { /* 清除列表小点 */
+			list-style: none;
+		}
+
+		/* 清除浮动 三连击 */
+		.clearfix:before , .clearfix:after {
+			display: table;
+			content: "";
+		}
+
+		.clearfix:after {
+			clear: both;
+		}
+
+		.clearfix {
+			*zoom:0;
+		}
+
+		/* 集体申明 */
+		a {/* 连接颜色与下划线 */
+			color: #050505;
+			text-decoration: none; /* 去掉下划线 */
+		}
+
+		input {
+			border: 0; 
+			box-sizing: border-box;/*C3新盒模型 padding border 不修改盒子大小 */
+		}
+
+		.container { /* 版心公共类 */
+			width: 1200px;
+			margin: 0 auto;
+		}
+
+		body {
+			background-color: #f3f5f7;
+		}
+
+
+		/* 头部样式 */
+		header {
+			height: 100px;
+			overflow: hidden;
+		}
+
+		nav {
+			width: 1366px;
+			height: 42px;
+			margin: 26px auto;
+		}
+
+
+		.logo {
+			float: left;
+		}
+
+		/* 导航栏 */
+		.navbar {
+			float: left;
+			height: 42px;
+			line-height: 42px; /* 行高会继承 */
+			margin-left: 50px;
+		}
+
+		.navbar li {
+			float: left;
+		}
+
+		.navbar li a {
+			padding: 0 8px;
+			display: block; /* a 为行内元素，要设置高度需要转换为块级元素 */
+			height: 42px;
+		}
+
+		.navbar li a:hover{
+			border-bottom: 2px solid #00a4ff;
+		}
+
+		/* 搜索框 */
+		.search {
+			width: 410px;
+			height: 38px;
+			border: 1px solid  #00a4ff;
+			float: right;
+		}
+
+		.search input[type=text] { /* 属性选择器 */
+			width: 360px;
+			height: 38px;
+			padding-left: 20px;
+			float: left;
+		}
+
+		.search input[type=submit] {
+			width: 50px;
+			height: 38px;
+			float: left;
+			background: #00a4ff url(images/search.png) center center  no-repeat;
+		}
+
+		/* 个人中心 */
+
+		.personal {
+			float: right;
+			height: 42px;
+			line-height: 42px;
+			margin: 0 15px 0 35px
+		}
+
+		.personal a{
+			float: left;
+		}
+
+		.personal img{
+			margin: 0 8px;
+			float: left;
+		}
+
+		/* banner */
+		.banner {
+			height: 420px;
+			background-color: #1c036c;
+		}
+
+		.banner-in {
+			height: 420px;
+			background: url(images/banner.png) 0 0 no-repeat;
+		}
+
+		/* 侧边栏 */
+		.slidebar {
+			height: 420px;
+			width: 190px;
+			background: rgba(0,0,0,0.3);/* 半透明 */
+			float: left;
+		}
+
+		.slidebar ul li a {
+			line-height: 45px; /* 单行设置行高，可以不设置高度 */
+			color: #fff;
+			font-size: 14px;
+			padding: 0 20px;
+			display: block;
+		}
+
+		.slidebar ul li a:hover {
+			color: #00a4ff;
+		}
+
+		.slidebar ul li a span {
+			float: right;
+			font-family: arial; /* 符号一般用这个字体 */
+		}
+
+		/* 课表 */
+		.timetable {
+			float: right;
+			width: 230px;
+			height: 300px;
+			margin-top: 50px;
+			background-color: #fff;
+		}
+
+		.timetable dt {
+			line-height: 48px;
+			background-color: #9bceea;
+			text-align: center;
+			color: #fff;
+			font-weight: 700; /* 加粗 */
+			letter-spacing: 2px;/* 设置字间距 */
+			margin-bottom: 5px;
+		}
+
+		.timetable dd {
+			width: 193px;
+			height: 60px;
+			margin: 0 auto;
+			border-bottom: 1px solid #ededed;
+		}
+
+		.timetable dd:last-child { /* 结构伪类选择器 */
+			border-bottom: none;
+		}
+
+		.timetable dd:last-child a{
+			margin-top: 8px;
+			border: 1px solid #00a4ff;
+			display: block;
+			text-align: center;
+			line-height: 38px;
+			font-weight: 700; /* 加粗 */
+			color: #00a4ff;
+		}
+
+		.timetable dd:last-child a:hover{
+			color: #fff;
+			background-color: #00a4ff;
+		}
+
+		.timetable dd h4{
+			padding-top: 14px;
+			font-size: 16px;
+			font-weight: normal;
+			color: #4e4e4e;
+			box-sizing: border-box;
+		}
+
+		.timetable dd p{
+			font-size: 14px;
+			color: #a5a5a5;
+		}
+
+
+		/* 精品推荐 */
+		.recommend {
+			height: 60px;
+			line-height: 60px;
+			background-color: #fff;
+			margin-top: 8px;
+			box-shadow: 0 2px 2px rgba(0,0,0,0.2); /* 盒子阴影 水平位置 垂直位置 模糊距离 影子颜色 */
+		}
+
+		.recommend a {
+			padding: 0 30px;
+			border-right: 1px solid #ccc;
+		}
+
+		.recommend a:hover{
+			color: #00a4ff;
+		}
+
+		.recommend a:first-child {
+			font-weight: 700;
+			color: #00a4ff;
+		}
+
+		.recommend a:last-child {
+			color: #00a4ff;
+			border-right: 0;
+			float: right;
+			font-size: 14px;
+		}
+	</style>
+</head>
+<body>
+	
+	<!-- 头部部分 -->
+	<header>
+		<nav>
+			<!-- logo -->
+			<div class="logo">
+				<img src="images/logo.png" alt="">
+			</div>
+
+			<!-- 导航栏 -->
+			<div class="navbar">
+				<ul>
+					<li><a href="#">首页</a></li>
+					<li><a href="#">课程</a></li>
+					<li><a href="#">职业规划</a></li>
+				</ul>
+			</div>
+
+			<!-- 个人中心 -->
+			<div class="personal">
+				<a href="#">个人中心</a> <img src="images/bell_03.png">
+				<img src="images/head_03.png"> <a href="#">FLY </a>
+			</div>
+
+			<!-- 搜索框 -->
+			<div class="search">
+				<form action="">
+					<input type="text" name="">
+					<input type="submit" value="" >
+				</form>
+			</div>
+
+			
+		</nav>
+	</header>
+
+	<!-- banner -->
+	<div class="banner"> 
+		<div class="banner-in container">
+
+			<!-- 侧边栏 -->
+			<div class="slidebar">
+				<ul>
+					<li><a href="#">前端开发 <span>></span> </a></li>
+					<li><a href="#">后端开发 <span>></span> </a></li>
+					<li><a href="#">移动开发 <span>></span> </a></li>
+					<li><a href="#">人工智能 <span>></span> </a></li>
+					<li><a href="#">商业预测 <span>></span> </a></li>
+					<li><a href="#">云计算&大数据 <span>></span> </a></li>
+					<li><a href="#">运维&从测试 <span>></span> </a></li>
+					<li><a href="#">UI设计 <span>></span> </a></li>
+					<li><a href="#">产品 <span>></span> </a></li>
+				</ul>
+			</div>
+
+			<!-- 课表 -->
+			<dl class="timetable">
+				<dt>我的课程表</dt>
+				<dd>
+					<h4>继续学习 程序语言设计</h4>
+					<p>正在学习-使用对象</p>
+				</dd>
+				<dd>
+					<h4>继续学习 程序语言设计</h4>
+					<p>正在学习-使用对象</p>
+				</dd>
+				<dd>
+					<h4>继续学习 程序语言设计</h4>
+					<p>正在学习-使用对象</p>
+				</dd>
+				<dd><a href="#">全部课程</a></dd>
+			</dl>
+			
+		</div>
+	</div>
+
+	<!-- 精品推荐 -->
+	<div class="recommend container">
+		<a href="#">精品推荐</a>
+		<a href="#">Jquer</a>
+		<a href="#">Spart</a>
+		<a href="#">MySql</a>
+		<a href="#">javaWeb</a>
+		<a href="#">Os</a>
+		<a href="#">Android</a>
+		<a href="#">修改兴趣</a>
+	</div>
+</body>
+</html>

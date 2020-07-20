@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+
+		.father {
+			width: 800px;
+			height: 400px;
+			background-color: pink;
+			margin: 40px auto;
+			position: relative;
+		}
+
+		/*.son {
+			width: 100px;
+			height: 20px;
+			background-color: #ff0;
+			position: absolute;
+			margin: 0 auto; 加了定位 margin失效了
+			left: 350px;  父级的一半减去自己的一半 
+			top: 190px;
+		}*/
+		
+		.son {
+			width: 100px;
+			height: 20px;
+			background-color: #ff0;
+			position: absolute;
+			/*margin: 0 auto; 加了定位 margin失效了*/
+			left: 50%; /* 父级的一半减去自己的一半 */
+			margin-left: -50px;
+			top: 50%;
+			margin-top: -10px;
+		}
+
+	</style>
+</head>
+<body>
+	<div class="father">
+		<div class="son"></div>
+	</div>
+</body>
+</html>

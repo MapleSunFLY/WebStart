@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>02 处理注册事件兼容性问题</title>
+</head>
+<body>
+	<input type="button" value="按钮" id="btn">
+	<script type="text/javascript">
+		// 处理注册事件的兼容性
+		// addEventListener
+		
+		/**
+		 * [addEventListener 处理注册事件的兼容性方法]
+		 * @param {[type]}   element   [注册事件的元素对象]
+		 * @param {[type]}   eventName [事件名称不带on click mouseover]
+		 * @param {Function} fn        [回调方法]
+		 */
+		function addEventListener(element,eventName,fn){
+			//如果不存在方法返回undefined 布尔值为false
+			if(element.addEventListener){
+				element.addEventListener(eventName,fn);
+			}else if(element.attachEvent){
+				element.attachEvent('on' + eventName,fn);
+			}else {
+				//等同于 element.onclick = fn; 点的方式同样可以以中括号的方式调用
+				element['on' + eventName] = fn;
+			}
+		}
+
+		var btn = document.getElementById('btn');
+		addEventListener(btn,'click',function () {
+			alert('click 1');
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>37 背景缩放</title>
+	<style type="text/css">
+		div {
+			width: 300px;
+			height: 400px;
+			color: pink;
+			background: #000 url(imger/background.jpg) no-repeat;
+			/* 背景图片缩放 background-size:宽度 高度  */
+			/* background-size: 100px; 直接设置大小 一般之设置一种等比缩放 */
+			/* background-size: 50%; 设置百分百 */
+
+			/* background-size: cover; 等比缩放图片，保证填满空间，超出部分隐藏 */
+			 background-size: contain; /* 等比缩放图片，保证图片完整，不一定填满空间 */
+		}
+	</style>
+</head>
+<body>
+	<div></div>
+</body>
+</html>

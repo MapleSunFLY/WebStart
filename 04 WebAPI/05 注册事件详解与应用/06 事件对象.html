@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>06 事件对象</title>
+</head>
+<body>
+	<input type="button" value="按钮" id="btn">
+
+	<script type="text/javascript">
+		
+		var btn = document.getElementById('btn');
+
+		function fn(e) {
+			// DOM标准中，是给事件处理函数一个参数
+			// e 是事件对象
+			// 在老版本的IE中获取事件对象的方式是 window.event
+			
+			// 兼容性处理
+			e = e || window.event;
+
+			//事件的阶段： 1捕获阶段 2目标阶段 3冒泡阶段
+			console.log(e.eventPhase)
+
+			// e.target 是真正触发事件的对象
+			console.log(e.target);
+
+			// 获取事件名称
+			console.log(e.type);
+
+			// 获取鼠标在浏览器可视区域的坐标
+			console.log(e.clientX);
+			console.log(e.clientY);
+
+			// 获取鼠标在当前页面的位置
+			console.log(e.pageX);
+			console.log(e.pageY);
+		}
+
+		btn.onclick = fn;
+		btn.onmouseover = fn;
+		btn.onmouseout = fn;
+	</script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>03 移除事件</title>
+</head>
+<body>
+	<input type="button" value="按钮1" id="btn1">
+	<input type="button" value="按钮2" id="btn2">
+	<script type="text/javascript">
+
+		// 01 直接设置的方法置空
+		var btn1 = document.getElementById('btn1');
+
+		btn1.onclick = function () {
+			alert("Hello World")
+
+			//移除事件
+			btn1.onclick = null;
+		}
+
+		var btn2 = document.getElementById('btn2');\
+
+		//02 add 清理 remove
+		//想要移除事件 ，注册事件不能为匿名函数
+		function btnClick () {
+			alert('按钮2')
+			//移除事件
+			btn2.removeEventListener('click',btnClick);
+		}
+
+		btn2.addEventListener('click',btnClick);
+	</script>
+</body>
+</html>

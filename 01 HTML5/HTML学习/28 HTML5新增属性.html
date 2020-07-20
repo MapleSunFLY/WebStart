@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>28 HTML5新增属性</title>
+</head>
+<body>
+
+	<!-- placeholder 占位符 默认提示信息  autofocus: 自动获取焦点-->
+	<p>用户名：<input type="text" name="userName" placeholder="请输入用户名" autofocus /></p>
+
+	<p>上传头像 <input type="file" name="file" multiple /></p><!--multiple 多文件上传-->
+
+	<h4>autocomplete 自动记录录入记录</h4>
+	<ol>
+		<li>autocomplete  首先需要提交按钮</li>
+		<li>input 必须有name属性</li>
+	</ol>
+	<form>
+		姓名：<input type="text" autocomplete="on" name="name">
+		<input type="submit" >
+	</form>
+
+	<!--required 不能为空 accesskey 规定获取焦点 alt+字母获取 -->
+	<p>昵称：<input type="text" required accesskey="s" /></p>
+
+</body>
+</html>

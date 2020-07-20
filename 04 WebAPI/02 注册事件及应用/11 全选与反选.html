@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>11 全选与反选</title>
+	<style type="text/css">
+		* {
+            padding: 0;
+            margin: 0;
+        }
+
+         .wrap {
+            width: 300px;
+            margin: 100px auto 0;
+        }
+
+        table {
+        	border-collapse: collapse;
+        	border-spacing: 0;
+        	border: 1px solid #c0c0c0;
+        	width: 300px;
+        }
+
+        th,
+        td {
+        	border: 1px solid #d0d0d0;
+            color: #404060;
+            padding: 10px;
+        }
+
+        th {
+            background-color: #09c;
+            font: bold 16px "微软雅黑";
+            color: #fff;
+        }
+
+        td {
+        	font: 14px "微软雅黑";
+        }
+
+        tbody tr {
+            background-color: #f0f0f0;
+        }
+
+        tbody tr:hover {
+            cursor: pointer;
+            background-color: #fafafa;
+        }
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<table>
+			<thead>
+				<th align="left">
+					<input type="checkbox" id="cbAll">
+				</th>
+				<th>商品</th>
+				<th>价格</th>
+			</thead>
+			<tbody id="tbPhone">
+				<tr>
+					<td>
+						<input type="checkbox" >
+					</td>
+					<td>iPhone</td>
+					<td>3000</td>
+				</tr>
+
+				<tr>
+					<td>
+						<input type="checkbox" >
+					</td>
+					<td>华为</td>
+					<td>3000</td>
+				</tr>
+
+				<tr>
+					<td>
+						<input type="checkbox" >
+					</td>
+					<td>小米</td>
+					<td>2000</td>
+				</tr>
+
+				<tr>
+					<td>
+						<input type="checkbox" >
+					</td>
+					<td>锤子</td>
+					<td>1500</td>
+				</tr>
+			</tbody>
+		</table>
+		<input type="button" value=" 反 选 " id="btn">
+	</div>
+
+	<script type="text/javascript">
+		var cbAll = document.getElementById('cbAll');
+		var tbPhone = document.getElementById('tbPhone');
+		var tbCbs = tbPhone.getElementsByTagName('input');
+		var btn = document.getElementById('btn');
+
+		cbAll.onclick = function () {
+			for (var i = 0; i < tbCbs.length; i++) {
+				var tbCb = tbCbs[i];
+				tbCb.checked = this.checked;
+			}
+		}
+
+
+
+		for (var i = 0; i < tbCbs.length; i++) {
+			var tbCb = tbCbs[i];
+			tbCb.onclick = function () {
+				var isAll = true;
+				for (var i = 0; i < tbCbs.length; i++) {
+					var tbCb = tbCbs[i];
+					if (!tbCb.checked) {
+						isAll = false;
+						break;
+					}
+				}
+				cbAll.checked = isAll;
+			}
+		}
+
+		btn.onclick = function () {
+			var isAll = true;
+			for (var i = 0; i < tbCbs.length; i++) {
+				var tbCb = tbCbs[i];
+				tbCb.checked = !tbCb.checked;
+				if (!tbCb.checked) {
+					isAll = false;
+				}
+			}
+			cbAll.checked = isAll;
+		}
+	</script>
+</body>
+</html>

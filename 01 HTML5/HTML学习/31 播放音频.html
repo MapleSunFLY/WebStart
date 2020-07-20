@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>31 播放音频</title>
+</head>
+<body>
+
+	<!--autoplay 自动播放  controls 是否显示播放器  loop循环次数 不写次数或-1为无限循环-->
+
+	<!--为了兼容所有浏览器，需要兼容 设置三种格式 文件 ogg MP3 wav -->
+	<audio  autoplay controls loop="-1">
+		<source src="http://qiniu.postop.cn/audio_1511851911134_bucket-release.MP3" type="">
+		<source src="http://qiniu.postop.cn/audio_1511851911134_bucket-release.ogg" type="">
+		<source src="http://qiniu.postop.cn/audio_1511851911134_bucket-release.wav" type="">
+	</audio>
+	
+</body>
+</html>

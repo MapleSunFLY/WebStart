@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>39 凹凸文字</title>
+	<style type="text/css">
+
+		body {
+			background: #BBB;
+		}
+
+		div {
+			color: #BBB;
+			font: 700 80px "宋体";
+		}
+
+		div:first-child{
+			/* text-shadow: 水平位置 垂直位置 模糊距离 阴影颜色; */
+			text-shadow: 2px 2px 3px #777 , -2px -2px 3px #EEE;
+		}
+
+		div:last-child{
+			/* text-shadow: 水平位置 垂直位置 模糊距离 阴影颜色; */
+			text-shadow: -2px -2px 3px #777,2px 2px 3px #EEE ;
+		}
+	</style>
+</head>
+<body>
+	<div>我是凹下的文字</div>
+	<div>我是凸起的文字</div>
+</body>
+</html>

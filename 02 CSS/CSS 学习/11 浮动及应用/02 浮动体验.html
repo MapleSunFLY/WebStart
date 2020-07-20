@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>02 浮动体验</title>
+	<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+		}
+
+		div {
+			width: 200px;
+			height: 200px;
+
+			/* 要实现效果块级元素在同一行 */
+
+			/* 第一种：元素转换：为行内块元素 */
+			/* display: inline-block; 存在问题，元素之间有间隔，很难去掉 */
+
+			/* 第二种：浮动设置 */
+			float: left; /* 设置为左浮动 */
+
+		}
+
+		div:first-child {
+			background-color: pink;
+		}
+
+		div:nth-child(2) {
+			background-color: hotpink;
+		}
+
+		div:last-child {
+			background-color: deeppink;
+		}
+	</style>
+</head>
+<body>
+	<div></div>
+	<div></div>
+	<div></div>
+</body>
+</html>

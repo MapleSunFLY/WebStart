@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>55 搜索趣图</title>
+	<style type="text/css">
+		* { /* 为了兼容性，清空盒子默认距离 基本是默认写法*/
+			margin: 0;
+			padding: 0;
+		}
+
+		ul {
+			list-style: none;/* 取消列表自带数字或小点 */
+		}
+
+		.searchPic {
+			width: 238px;
+			height: 294px;
+			border: 1px solid #D9E0EE;
+			border-top: 3px solid #FF8400;
+			margin: 20px;
+		}
+
+		.searchPic h3 {
+			height: 35px;
+			line-height: 35px;/* 行高等于高度，文字自动居中 */
+			border-bottom:  1px solid #D9E0EE;
+			font-size: 16px;
+			font-weight:normal;/* 不加粗 */ 
+			padding-left: 12px;
+		}
+
+		.searchPic img {
+			width: 222px;
+			height: 150px;
+			margin: 7px 0 0 8px;
+		}
+
+		.searchPic ul li a {
+			font-size: 12px;
+			color: #666666;
+			text-decoration: none;
+		}
+
+		.searchPic ul {
+			margin-left: 8px;
+		}
+
+		.searchPic ul li {
+			padding-left: 10px;
+			height: 26px;
+			line-height: 26px;
+			background:  url(imger/square.png) left center  no-repeat ;
+		}
+
+		.searchPic ul li a:hover { /* 鼠标经过 */
+			text-decoration: underline;
+			color: #FF8400;
+		}
+	</style>
+</head>
+<body>
+	<div class="searchPic">
+
+		<h3>搜索趣图</h3>
+
+		<img src="imger/pic.jpg">
+
+		<ul>
+			<li><a href="#">GIF：这是松鼠吗？难道不是吃素的</a></li>
+			<li><a href="#">中国载人航天工程迈向全球合作新时代</a></li>
+			<li><a href="#">防晒究竟在防什么？阴天要不要防晒？</a></li>
+		</ul>
+
+	</div>
+</body>
+</html>

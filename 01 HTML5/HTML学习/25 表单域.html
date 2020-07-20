@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>25 表单域</title>
+</head>
+<body>
+	我们学习了三个域：
+
+	<ol>
+		<li>文本域 textarea 留言的</li>
+		<li>文件域 input type="file" 上传文件</li>
+		<li>表单域 form 收集表单控件信息 并提交的</li>
+	</ol>
+
+	<hr>
+
+	<h2>表单域</h2>
+	<!-- 
+	form的属性：
+	
+	1.action 后台服务器
+	
+	2.method 提交方式，GET或POST
+	
+	3.name 用于区分表单域 -->
+
+	<form action="url地址" method="POST" name="login" >
+
+		<p>用户名：<input type="text" name="userName" id=""> </p>
+
+		<p>密&nbsp;&nbsp;&nbsp;码：<input type="password" name="userPwd" id=""> </p>
+
+		<p><input type="submit" value="提交"> <input type="reset" name="重置"></p>
+
+	</form>
+
+	<ul>
+		<li>Get 速度快 会显示请求信息</li>
+		<li>POST 速度相对较慢 不会显示请求信息</li>
+	</ul>
+</body>
+</html>

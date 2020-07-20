@@ -1,0 +1,266 @@
+/* 中间分类 */
+.grid {
+	height: 480px;	
+}
+
+.gridIndexes {
+	width: 190px;
+	height: 100%;	
+	background-color: #6e6568;
+	color: #fff;/* 不是给字，是给 / 的 */
+	font-size: 14px;/* 不是给字，是给 / 的 */
+	position: relative;
+}
+
+.gridIndexesAd {
+	width: 251px;
+	height: 480px;
+	position: absolute;
+	top: 0;
+	left: -251px;
+}
+
+.gridIndexesAdImg {
+	position: absolute;
+	width: 0;
+	height: 480px;
+	top: 0;
+	left: 251px;
+	z-index: 999;
+	background: url(../images/ad-r.jpg);
+	/* 这个图片的动画，需要给它添加过渡 */
+	transition: all 0.5s; 
+}
+
+.gridIndexesAd:hover .gridIndexesAdImg{ /* 鼠标经过gridIndexesAd时，gridIndexesAdImg变宽； */
+	width: 999px;
+}
+
+.gridIndexes ul {
+	padding: 15px 0;
+}
+
+
+.gridIndexes a {
+	color: #fff;/* 字的*/
+	font-size: 14px;/* 字的*/
+}
+
+.gridIndexes a:hover {
+	color: #f10215;/* 字的*/
+}
+
+.gridIndexes ul li {
+	padding-left: 12px;
+	height: 28px;
+	line-height: 28px;
+}
+
+.gridIndexes ul li:hover {
+	background-color: #9c9698;
+}
+
+.gridAd {
+	width: 790px;
+	height: 100%;
+	margin-left: 10px;
+}
+
+.gridAdTop {
+	position: relative;
+}
+
+.arrowL,
+.arrowR {
+	position: absolute;
+	top: 50%;
+	/* 如果不给定位的left值，盒子以上一个盒子的右边对齐 */
+	width: 25px;
+	height: 35px;
+	transform: translateY(-50%);/* 上移自己的百分之50%刚好居中 */
+	line-height: 35px;
+	font-family: "icomoon";
+    font-style: normal; /* 去除倾斜 */
+    color: rgba(255,255,255,.8);
+    font-size: 20px;
+    background: rgba(0,0,0,.15);
+	
+}
+
+.arrowL {
+	left: 0;
+	text-align: center;
+	border-radius: 0 50% 50% 0;/* 圆角 */
+}
+
+.arrowR {
+	right: 0;
+	border-radius: 50% 0 0 50%;/* 圆角 */
+}
+
+.circle {
+	width: 175px;
+	height: 20px;
+	background: rgba(255,255,255,.3);
+	position: absolute;
+	bottom: 20px;
+	left: 50%;
+	transform: translateX(-50%);/* 上移自己的百分之50%刚好居中 */
+	border-radius: 10px;/* 圆角 */
+	padding-left: 7px;
+	box-sizing: border-box;
+}
+
+.circle li {
+	width: 12px;
+	height: 12px;
+	background-color: #fff;
+	border-radius: 50%;/* 圆角 */
+	float: left;
+	margin: 4px;
+	cursor: pointer; /* 鼠标经过li的时候变成小手 */
+}
+
+.circle .current {
+	background-color: #f10215;
+}
+
+.gridAdBottom div {
+	margin-top: 10px;
+}
+
+.gridMsg {
+	width: 190px;
+	height: 100%;
+}
+
+.user {
+	height: 85px;
+	border-bottom: 1px solid #ccc;
+	padding: 15px;
+	background-color: #fff;
+}
+
+.userInfo {
+	width: 95px;
+	height: 60px;
+	font-size: 14px;
+	color: #666;
+	padding-left: 60px;
+	white-space: nowrap; /* 强制在一行显示 内容会超出 */
+	overflow: hidden; /* 超出内容隐藏 */
+	text-overflow: ellipsis; /* 超出部分显示省略号 */
+	position: relative;
+}
+
+.userInfo a {
+	color: #666;
+}
+
+.userInfo a:hover {
+	color: #f10215;
+}
+
+.headImg {
+	width: 50px;
+	height: 50px;
+	position: absolute;
+	top: 0;
+	left: 0;
+/*	border-radius: 50%;给父级圆角 子集会超出 
+	overflow: hidden; 超出隐藏 与圆角共同实现子集圆角效果*/
+	background: url(../images/sprite_userinfo@1x.png) no-repeat -70px 0;
+}
+
+.headImg img {
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;/*直接给图片圆角 */
+	margin: 5px;
+}
+
+.userVip a {
+	width: 70px;
+	height: 20px;
+	line-height: 20px;
+	color: #f10215;
+	display: block; /* 转换成行内块元素可以设置宽高 */
+	text-align: center;
+	border: 2px solid #f10215;	
+}
+
+.userVip a:hover {
+	color: #fff;
+	background-color: #f10215;
+}
+
+.news {
+	height: 155px;
+	background-color: #fff;
+	border-bottom: 1px solid #ccc;
+	padding: 7px 13px 0;
+	box-sizing: border-box;
+}
+
+.newsTitle {
+	height: 20px;
+	border-bottom: 1px solid #ccc;
+	position: relative;
+}
+
+.newsTitle a {
+	float: left;
+	height: 17px;
+	line-height: 17px;
+}
+
+.newsTitleOne {
+	width: 38px;
+	border-right: 1px solid #ccc;
+}
+
+.newsTitleTwo {
+	padding-left: 15px;
+}
+
+.newsTitle .newsTitleMore {
+	float: right;
+}
+
+.newsTitle div {
+	height: 2px;
+	width: 28px;
+	background-color: #f10215;
+	position: absolute;
+	bottom: -1px;
+	left: 0;
+}
+
+.newsContent {
+	padding-top: 15px;
+}
+
+.newsContent li {
+	height: 23px;
+	line-height: 23px;
+}
+
+.dailyService {
+	height: 209px;
+	background-color: #fff;
+	overflow: hidden;
+}
+
+.dailyService ul {
+	width: 195px; /* 父级是190 但里面的li最后一个多了一个边框大了1px 所以设置其宽度大于父级 可以放下 */
+}
+
+.dailyService li{
+	width: 47px;
+	height: 69px;
+	border-right: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+	float: left;
+}
+
+/* 中间分类 */

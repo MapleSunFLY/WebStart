@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>边框写法总结</title>
+	<style type="text/css">
+
+		input {
+			border: 0; /* 没有边框 */
+		}
+
+		.user {
+			border-width: 1px;
+			border-color: pink;
+			border-style: solid; 
+		}
+
+		.phone {
+			border-top-width: 1px;
+			border-top-color: pink;
+			border-top-style: solid;
+		}
+
+		.petName {
+			border-top: 1px solid red; /* 上边框简写 */
+
+			border-bottom-width: 1px;
+			border-bottom-color: #000;
+			border-bottom-style: solid;
+		}
+
+		.email {
+			border: 1px solid #0f0;
+		}
+
+	</style>
+</head>
+<body>
+	用户名： <input type="text" class="user">
+	<br>
+	<br>
+	电  话： <input type="text" class="phone">
+	<br>
+	<br>
+	昵  称： <input type="text" class="petName">
+	<br>
+	<br>
+	邮  箱： <input type="text" class="email">
+</body>
+</html>

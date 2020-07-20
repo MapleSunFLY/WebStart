@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>07 简单动画</title>
+
+	<style type="text/css">
+		
+		body {
+			margin: 0;
+		}
+
+		#box {
+			position: relative;
+			background-color: #0ff;
+			width: 100px;
+			height: 100px;
+			margin-top: 10px;
+		}
+	</style>
+</head>
+<body>
+	<input type="button" value="开始" id="btnStart">
+	<div id="box"></div>
+
+	<script type="text/javascript">
+		
+		var btn = document.getElementById('btnStart');
+		var box = document.getElementById('box');
+		
+		// 定时器标识
+		var timeId;
+
+		//定时器执行方法
+		
+		btn.onclick = function () {
+			timeId = setInterval(function () {
+				if (box.offsetLeft >= 500) {
+					clearInterval(timeId);
+				} else {
+					box.style.left = box.offsetLeft + 1 + 'px';
+				}
+			},10);
+		}
+
+
+	</script>
+</body>
+</html>

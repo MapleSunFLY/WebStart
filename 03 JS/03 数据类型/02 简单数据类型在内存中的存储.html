@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>02 简单数据类型在内存中的存储</title>
+	<script type="text/javascript">
+		//简单数据类型在内存中的存储 
+		//简单数据类型均存储在 栈内存上 且每一个变量都会开辟一个空间
+		var a = 10;
+		var b = a;
+		console.log("a修改前：");
+		console.log(a);
+		console.log(b);
+		// 如上的创建，a，b变量均在栈内存上开辟了空间，所以a变量修改b不会改变
+		a = 20;
+		console.log("a修改后：");
+		console.log(a);
+		console.log(b);
+
+		console.log("---------------------------------------------------------");
+
+		// 简单数据类型作为函数参数在内存中的存储
+		// 传参也会在栈内存上开辟新的空间 所以方法内部的修改不会影响传入参数内容
+		function fn(x,y){
+			x= x+1;
+			y= y+1;
+			console.log("方法中出入参数：");
+			console.log(x);
+			console.log(y);
+		}
+		var c = 10;
+		var d = 20;
+		console.log("调用方法前源变量：");
+		console.log(c);
+		console.log(d);
+
+		fn(c,d);
+		// x，y会在栈内存开辟新的空间，所不会影响c，d参数类容，所以c，d变量不会修改
+		console.log("调用方法后源变量：");
+		console.log(c);
+		console.log(d);
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

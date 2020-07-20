@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>03 一列固定宽度却居中</title>
+	<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+		}
+
+		/* 有很多相同样式时，使用并集选择器 */
+		.top,
+		.banner,
+		.main,
+		.footer{
+			width: 960px;
+			text-align: center;
+			margin: 0 auto; /* 盒子居中 */
+			margin-bottom: 10px;
+			border: 1px dashed #ccc;
+			background-color: #fff;
+		}
+
+		.top {
+			height: 100px;
+		}
+
+		.banner {
+			height: 300px;
+		}
+
+		.main {
+			height: 500px;
+		}
+
+		.footer {
+			height: 200px;
+		}
+	</style>
+</head>
+<body>
+	<div class="top">top</div>
+	<div class="banner">banner</div>
+	<div class="main">main</div>
+	<div class="footer">footer</div>
+</body>
+</html>

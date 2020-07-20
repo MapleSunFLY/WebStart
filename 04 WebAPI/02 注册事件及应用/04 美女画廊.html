@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>04 美女画廊</title>
+	<style type="text/css">
+		body {
+			font-family: "Helvetica" ,"Arial" ,serif;
+			color: #333;
+			background-color: #ccc;
+			margin: 1em 10%;
+		}
+
+		a{
+			color: #c60;
+			background-color: transparent;
+			font-weight: bold;
+			text-decoration: none;
+		}
+	</style>
+</head>
+<body>
+	<h2>美女画廊</h2>
+
+	<div id="divImg">
+		<a href="images/mm1.jpg">
+			<img src="images/mm1.jpg" alt="美女1" height="80" >
+		</a>
+
+		<a href="images/mm2.jpg">
+			<img src="images/mm2.jpg" alt="美女2" height="80">
+		</a>
+
+		<a href="images/mm3.jpg">
+			<img src="images/mm3.jpg" alt="美女3" height="80">
+		</a>
+
+		<a href="images/mm4.jpg" title="美女4">
+			<img src="images/mm4.jpg" alt="" height="80">
+		</a>
+	</div>
+
+	<img id="image" src="images/mm1.jpg" height="320">
+
+	<p id="des">美女1</p>
+
+	<script type="text/javascript">
+		var divImg =document.getElementById("divImg");
+		var image = document.getElementById("image");
+		var des = document.getElementById("des");
+
+		console.dir(des);
+
+		var links = document.getElementsByTagName('a');
+
+		for (var i = 0; i < links.length; i++) {
+			var link = links[i];
+
+			link.onclick = function () {
+
+				image.src = this.href;
+
+				des.innerText = this.title;
+
+				return false;//取消a标签行为
+			} 
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>30 属性选择器</title>
+	<style type="text/css">
+		a[title]{ /* 属性选择器用中括号表示 E[attr]{} 所有有attr属性的标签*/
+			color: pink;
+		}
+
+		input[type=text]{ /* E[attr=val]{} =val 表示 属性值完全等于val*/
+			color: #f00;
+		}
+
+		div[class^=font]{ /* E[attr^=val]{} ^=val 表示 属性值以val开始*/
+			color: #0f0;
+		}
+
+		div[class$=footer]{ /* E[attr$=val]{} $=val 表示 属性值以val结束*/
+			color: #00f;
+		}
+
+		div[class*=jd]{ /* E[attr*=val]{} *=val 表示 属性值包含val*/
+			color: #0ff;
+		}
+	</style>
+</head>
+<body>
+	<a href="#" title="我是百度">百度</a>
+	<a href="#" title="我是新浪">新浪</a>
+	<a href="#">搜狐</a>
+	<a href="#">土豆</a>
+	<a href="#">优酷</a>
+
+	<input type="text" value="文本框">
+	<input type="text" value="文本框">
+	<input type="submit">
+	<input type="submit">
+	<input type="reset">
+	<input type="reset">
+	<input type="reset">
+
+	<div class="font12">属性选择器 font12</div>
+	<div class="font12">属性选择器 font12</div>
+	<div class="font24">属性选择器 font24</div>
+	<div class="font24">属性选择器 font24</div>
+	<div class="36font">属性选择器 36font</div>
+	<div class="sub-footer">属性选择器 footer</div>
+	<div class="tao-footer">属性选择器 footer</div>
+	<div class="news-jd-nav">属性选择器</div>
+	<div class="news-jd-header">属性选择器</div>
+	<div class="jd-header">属性选择器</div>
+	<div class="news-jd">属性选择器</div>
+
+</body>
+</html>

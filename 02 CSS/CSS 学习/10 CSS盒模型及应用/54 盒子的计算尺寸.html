@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>54 盒子的计算尺寸</title>
+	<style type="text/css">
+		.text {
+			width: 100px;
+			height: 100px;
+			background-color: pink;
+			border: 5px solid red; /* 4个边框 空间大小与实际大小均增加 */
+			padding: 10px; /* 4个内边距 空间大小与实际大小均增加 */
+			margin: 20px; /* 4个外边距 盒子空间大小增加 实际大小不改变 */
+
+			/* 
+			空间尺寸：width + border + padding + margin
+			实际尺寸：width + border + padding
+			*/
+		}
+
+		.demo {
+			width: 59px; /* 59 +15 = 74 */
+			height: 33px;
+			line-height: 33px;
+			border: 1px solid #C1C1C1;
+			margin: 200px;
+			font-size: 16px;
+			color: #666;
+			border-radius: 5px 0 0 5px;
+			padding-left: 15px;/* 增加padding 盒子变动，需要减少 width保持 盒子宽度不改变 */
+		}
+		/* padding不会影响盒子宽度/高度大小的情况
+		   1.没有给盒子指定宽度/高度
+		   2.父级盒子指定，子级盒子没有指定时
+
+		*/
+		nav {
+			width: 300px;
+			height: 40px;
+			border: 1px solid #F00;
+		}
+
+		p { /* 子级盒子没有指定宽度会继承父级盒子的宽度 */
+			height: 20px;
+			background-color: pink;
+			padding-left: 30px;
+		}
+	</style>
+</head>
+<body>
+	<div class="text"></div>
+
+	<div class="demo">新闻</div>
+
+	<nav>
+		<p>来啊，来啊。</p>
+	</nav>
+</body>
+</html>

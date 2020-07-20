@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>03 菜单</title>
+	<style type="text/css">
+		 #menu ul li {
+            list-style-type: none;
+            width: 80px;
+            height: 30px;
+            line-height: 30px;
+            background-color:beige;
+            text-align: center;
+            float: left;
+            margin-left: 5px;
+        }
+
+        #menu ul li.current {
+            background-color: burlywood;
+        }
+
+        #menu ul li a {
+            text-decoration: none;
+        }
+	</style>
+</head>
+<body>
+	<div id="menu">
+		<ul>
+			<li class="current"><a href="javascript:void(0)"></a></li>
+			<li><a href="javascript:void(0)"></a></li>
+			<li><a href="javascript:void(0)"></a></li>
+			<li><a href="javascript:void(0)"></a></li>
+			<li><a href="javascript:void(0)"></a></li>
+			<li><a href="javascript:void(0)"></a></li>
+		</ul>
+	</div>
+	<script type="text/javascript" src="common.js"></script>
+	<script type="text/javascript">
+
+		//http：执行网页
+		//javascript: 执行javascript；
+		// void 是运算符
+		// 执行viod后面的表达式 并最终返回undefined
+		// 主要是用于a标签点击后不做任何操作
+		// 
+	    var menu = my$("men");
+
+	    var ul = getFirstElementChild(menu);
+	</script>
+</body>
+</html>

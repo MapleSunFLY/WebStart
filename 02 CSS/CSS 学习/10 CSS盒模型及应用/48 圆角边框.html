@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>48 圆角边框</title>
+
+	<style type="text/css">
+		div {
+			width: 200px;
+			height: 200px;
+			border: 1px solid red;
+		}
+
+		div:first-child {
+			border-radius: 10px; /* 一个值表示四个角都相同 为10px */
+		}
+
+		div:nth-child(3) {
+			border-radius: 100px; /*直接取值 取宽度高度的一半 则会变成一个圆 */
+		}
+
+		div:nth-child(5) {
+			border-radius: 50%; /*百分百比取值 取宽度高度的一半 则会变成一个圆 */
+		}
+
+		div:nth-child(7) {
+			border-radius: 10px 40px ; /*左上角和右下角 为10px 左下角和右上角为40px 对角线 */
+		}
+
+		div:nth-child(9) {
+			border-radius: 10px 40px 80px; /*左上角为10px 左下角和右上角为40px 右下角为80 对角线 */
+		}
+
+		div:nth-child(11) {
+			border-radius: 10px 40px 80px 100px; /*左上角为10px 右上角为40px 右下角为80px  左下角为100px 对角线 */
+		}
+
+		div:nth-child(13) {
+			border-radius: 100px; 
+			height: 100px;
+		}
+
+		div:nth-child(15) {
+			border-radius: 100px 0; 
+		}
+	</style>
+</head>
+<body>
+	<div></div><br>
+	<div></div><br>
+	<div></div><br>
+	<div></div><br>
+	<div></div><br>
+	<div></div><br>
+	<div></div><br>
+	<div></div><br>
+</body>
+</html>
