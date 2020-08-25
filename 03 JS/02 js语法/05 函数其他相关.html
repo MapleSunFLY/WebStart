@@ -76,12 +76,12 @@
 
 		//5.2函数和变量名称相同，函数优先调用
 		// 测试代码
-		// console.log(a);
-		// function a(){
+		// console.log(1);
+		// function 1(){
 		// 	console.log("aaaaa");
 		// }
-		// var a = "我是变量"；
-		// console.log(a);
+		// var 1 = "我是变量"；
+		// console.log(1);
 		//解析流程后的代码等同于测试代码
 		var a;
 		function a(){
@@ -93,7 +93,7 @@
 
 		//6 函数内部变量不加var修饰也属于全局变量
 		function f1(){
-			// var a = b = c = 9;
+			// var 1 = b = c = 9;
 			var a = 9; //属于局部变量
 			//属于全局变量
 			b = 9；
